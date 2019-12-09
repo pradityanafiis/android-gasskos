@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Daftar"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_satu"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <LinearLayout
+       android:layout_width="350dp"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="100dp"
+       android:layout_gravity="center"
+       android:background="@drawable/tepi2"
+       android:gravity="center">
+       <EditText
+           android:layout_width="320dp"
+           android:layout_height="wrap_content"
+           android:hint="Nama"
+           />
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="No. Hp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="Alamat"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi2"
+        android:gravity="center">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="Jenis Kelamin"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/PemilikKos"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Pemilik Kos"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi3"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/PencariKos"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Pencari Kos"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi3"
+        android:textColor="#ffffff" />
+
+</LinearLayout>
