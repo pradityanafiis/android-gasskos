@@ -10,6 +10,7 @@ import android.widget.Button;
 public class Daftar extends AppCompatActivity {
 
     Button verif;
+    Button verif2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,16 @@ public class Daftar extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(Daftar.this, Verifikasi.class));
+
         }
+        });
+        verif2 = (Button)findViewById(R.id.PemilikKos);
+        verif2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Daftar.this, Verifikasi.class));
+
+            }
         });
     }
 }
