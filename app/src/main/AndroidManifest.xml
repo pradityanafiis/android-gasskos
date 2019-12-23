@@ -10,16 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".buttom"
+            android:label="@string/title_activity_buttom"></activity>
+        <activity
+            android:name=".TestingActivity"
+            android:label="@string/title_activity_testing"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.digind.gasskos.MainActivity" />
+        </activity>
+        <activity
             android:name=".Verifikasi"
             android:label="Verifikasi Akun Anda"
-            android:parentActivityName=".Daftar">
-        </activity>
-
+            android:parentActivityName=".Daftar" />
         <activity
             android:name=".Daftar"
             android:label="Buat Akun Baru"
-            android:parentActivityName=".Login"/>
-
+            android:parentActivityName=".Login" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -28,7 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
