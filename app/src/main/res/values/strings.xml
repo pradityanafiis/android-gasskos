@@ -5,4 +5,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="welcome_msg">Selamat Datang, GassKos adalah solusi terbaik yang bisa anda dapatkan untuk menyewa kamar penginapan sesuai dengan kriteria Anda</string>
+    <string name="deskripsi_ovo">Potongan hingga 100 khusus pengguna OVO Aktifkan Akun OVO kamu sekarang juga!</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="search_title">Search</string>
+    <string name="person_title">Person</string>
 </resources>

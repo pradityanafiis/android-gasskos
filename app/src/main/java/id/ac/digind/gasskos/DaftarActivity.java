@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-public class Daftar extends AppCompatActivity {
+public class DaftarActivity extends AppCompatActivity {
 
     Button verif;
     Button verif2;
@@ -28,7 +28,7 @@ public class Daftar extends AppCompatActivity {
         verif.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            startActivity(new Intent(Daftar.this, Verifikasi.class));
+            startActivity(new Intent(DaftarActivity.this, VerifikasiActivity.class));
 
         }
         });
@@ -36,7 +36,7 @@ public class Daftar extends AppCompatActivity {
         verif2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Daftar.this, Verifikasi.class));
+                startActivity(new Intent(DaftarActivity.this, VerifikasiActivity.class));
 
             }
         });

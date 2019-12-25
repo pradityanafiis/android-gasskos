@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     TextView daftar;
     @Override
@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Daftar.class));
+                startActivity(new Intent(LoginActivity.this, DaftarActivity.class));
             }
         });
     }

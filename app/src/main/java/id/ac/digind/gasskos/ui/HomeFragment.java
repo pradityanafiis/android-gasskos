@@ -1,4 +1,4 @@
-package id.ac.digind.gasskos.ui.dashboard;
+package id.ac.digind.gasskos.ui;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +18,7 @@ import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.RekomendasiAdapter;
 import id.ac.digind.gasskos.models.Kost;
 
-public class DashboardFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
