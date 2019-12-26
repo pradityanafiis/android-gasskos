@@ -31,11 +31,13 @@
                 android:layout_gravity="center"
                 android:background="@drawable/tepi2"
                 android:gravity="center">
+
                 <EditText
+                    android:id="@+id/editTextName"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:hint="Nama"
-                    />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -45,25 +47,13 @@
                 android:layout_gravity="center"
                 android:background="@drawable/tepi2"
                 android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="ID"
-                    />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
                 <EditText
+                    android:id="@+id/editTextEmail"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    />
+                    android:inputType="textEmailAddress" />
             </LinearLayout>
 
             <LinearLayout
@@ -73,39 +63,13 @@
                 android:layout_gravity="center"
                 android:background="@drawable/tepi2"
                 android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="No. Hp"
-                    />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
                 <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Alamat"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
+                    android:id="@+id/editTextPassword"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    />
+                    android:inputType="textPassword" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,29 +79,21 @@
                 android:layout_gravity="center"
                 android:background="@drawable/tepi2"
                 android:gravity="center">
+
                 <EditText
+                    android:id="@+id/editTextRetypePassword"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
-                    android:hint="Jenis Kelamin"
-                    />
+                    android:hint="Retype Password"
+                    android:inputType="textPassword" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/PemilikKos"
+                android:id="@+id/buttonRegistrasi"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:text="Pemilik Kos"
+                android:text="Registrasi"
                 android:layout_marginTop="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi3"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:id="@+id/PencariKos"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:text="Pencari Kos"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:background="@drawable/tepi3"
                 android:textColor="#ffffff" />
