@@ -25,17 +25,12 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        Toolbar ToolBarAtas2 = (Toolbar)findViewById(R.id.toolbar_satu);
-        setSupportActionBar(ToolBarAtas2);
-        //ToolBarAtas2.setLogo(R.mipmap.ic_launcher);
-        ToolBarAtas2.setLogoDescription(getResources().getString(R.string.app_name));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextPasswordConfirmation = (EditText) findViewById(R.id.editTextRetypePassword);
         findViewById(R.id.buttonRegistrasi).setOnClickListener(this);
+        findViewById(R.id.textViewLogin).setOnClickListener(this);
     }
 
     public void register() {
@@ -89,6 +84,8 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(DaftarActivity.this, "Email sudah digunakan", Toast.LENGTH_LONG).show();
                 }else if(response.code() == 201) {
                     Toast.makeText(DaftarActivity.this, "Berhasil registrasi", Toast.LENGTH_LONG).show();
+                    finishAffinity();
+                    startActivity(new Intent(DaftarActivity.this, LoginActivity.class));
                 }else {
                     Toast.makeText(DaftarActivity.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                 }
@@ -103,6 +100,14 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        register();
+        switch (v.getId()){
+            case R.id.buttonRegistrasi:
+                register();
+                break;
+            case R.id.textViewLogin:
+                finishAffinity();
+                startActivity(new Intent(this, LoginActivity.class));
+                break;
+        }
     }
 }

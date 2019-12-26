@@ -60,8 +60,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (!response.body().getError()){
+                    finishAffinity();
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                    Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -81,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 login();
                 break;
             case R.id.textViewDaftar:
+                finishAffinity();
                 startActivity(new Intent(this, DaftarActivity.class));
                 break;
         }
