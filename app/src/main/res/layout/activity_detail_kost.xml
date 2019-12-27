@@ -62,7 +62,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi5"
-                    android:layout_weight=""
                     android:text="Detail"/>
 
                 <Space
@@ -77,10 +76,48 @@
 
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76 .
+                Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3),
+                musholla, dapur, wifi, dsb."/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_detailfoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/item_rekomendasi" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/tepi7"
+                    android:text="Kirim Pesan"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/tepi8"
+                    android:layout_margin="12dp"
+                    android:text="Sewa Sekarang"
+                    android:textColor="#ffffff"/>
 
             </LinearLayout>
 
