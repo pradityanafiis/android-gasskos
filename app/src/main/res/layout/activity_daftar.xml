@@ -19,55 +19,74 @@
 
     <EditText
         android:id="@+id/editTextName"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/birudasar"
+        android:capitalize="words"
         android:hint="Nama"
-        android:inputType="text" />
+        android:hyphenationFrequency="normal"
+        android:inputType="text"
+        android:textColorLink="@color/colorPrimaryDark2"
+        android:textCursorDrawable="@color/birudasar" />
 
     <EditText
         android:id="@+id/editTextEmail"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/birudasar"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColorLink="@color/colorPrimaryDark2"
+        android:textCursorDrawable="@color/birudasar" />
 
     <EditText
         android:id="@+id/editTextPassword"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/birudasar"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorLink="@color/colorPrimaryDark2"
+        android:textCursorDrawable="@color/birudasar" />
 
     <EditText
         android:id="@+id/editTextRetypePassword"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/birudasar"
         android:hint="Retype Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorLink="@color/colorPrimaryDark2"
+        android:textCursorDrawable="@color/birudasar" />
 
     <Button
         android:id="@+id/buttonRegistrasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrasi"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/tepi"
-        android:textColor="#ffffff" />
+        android:text="Registrasi"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textViewLogin"

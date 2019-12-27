@@ -13,7 +13,7 @@ public class VerifikasiActivity extends AppCompatActivity {
 
         Toolbar ToolBarAtas2 = (Toolbar)findViewById(R.id.toolbar_satu);
         setSupportActionBar(ToolBarAtas2);
-//        ToolBarAtas2.setLogo(R.mipmap.ic_launcher);
+        ToolBarAtas2.setLogo(R.mipmap.ic_launcher);
         ToolBarAtas2.setLogoDescription(getResources().getString(R.string.app_name));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
