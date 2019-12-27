@@ -12,10 +12,36 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
+            android:name=".DetailKostActivity"
+            android:label="@string/title_activity_detail_kost"
+            android:parentActivityName=".DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.digind.gasskos.DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".RiwayatActivity"
+            android:label="@string/title_activity_riwayat"
+            android:parentActivityName=".DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.digind.gasskos.DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".NotifikasiActivity"
+            android:label="@string/title_activity_notifikasi"
+            android:parentActivityName=".DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.digind.gasskos.DashboardActivity" />
+        </activity>
+        <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.DarkActionBar"
-            ></activity>
+            android:theme="@style/AppTheme.DarkActionBar" />
         <activity
             android:name=".VerifikasiActivity"
             android:label="Verifikasi Akun Anda"
