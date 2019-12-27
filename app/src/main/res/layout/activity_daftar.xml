@@ -7,143 +7,75 @@
     tools:context=".DaftarActivity"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_satu"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GassKos - Daftar"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/birudasar"/>
+
+    <EditText
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Nama"
+        android:inputType="text" />
 
-    <ScrollView
+    <EditText
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Nama"
-                    />
-            </LinearLayout>
+    <EditText
+        android:id="@+id/editTextRetypePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Retype Password"
+        android:inputType="textPassword" />
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="ID"
-                    />
-            </LinearLayout>
+    <Button
+        android:id="@+id/buttonRegistrasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrasi"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/tepi"
+        android:textColor="#ffffff" />
 
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="No. Hp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Alamat"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi2"
-                android:gravity="center">
-                <EditText
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Jenis Kelamin"
-                    />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/PemilikKos"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:text="Pemilik Kos"
-                android:layout_marginTop="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi3"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:id="@+id/PencariKos"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:text="Pencari Kos"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/tepi3"
-                android:textColor="#ffffff" />
-
-        </LinearLayout>
-
-    </ScrollView>
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sudah punya akun? Login"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/birudasar"/>
 
 </LinearLayout>
