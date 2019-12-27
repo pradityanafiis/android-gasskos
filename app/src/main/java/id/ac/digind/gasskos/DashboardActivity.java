@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -26,4 +29,13 @@ public class DashboardActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!SharedPreferencesManager.getInstance(DashboardActivity.this).isLogin()) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 }

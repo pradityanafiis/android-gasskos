@@ -1,6 +1,7 @@
 package id.ac.digind.gasskos;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.models.LoginResponse;
+import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,7 +22,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText editTextEmail, editTextPassword;
     private TextView daftar;
-    private Button buttonDaftar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText) findViewById(R.id.editTextPassword) ;
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewDaftar).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (SharedPreferencesManager.getInstance(this).isLogin()) {
+            Intent intent = new Intent(this, DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 
     private void login(){
@@ -60,9 +71,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (!response.body().getError()){
-                    finishAffinity();
-                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                    Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_LONG).show();
+                    SharedPreferencesManager.getInstance(LoginActivity.this).saveUser(response.body().getUser(), response.body().getToken());
+
+                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
+//                    finishAffinity();
+//                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+//                    Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -82,8 +99,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 login();
                 break;
             case R.id.textViewDaftar:
-                finishAffinity();
-                startActivity(new Intent(this, DaftarActivity.class));
+                Intent intent = new Intent(this, DaftarActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 break;
         }
     }

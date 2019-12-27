@@ -13,15 +13,12 @@ public class User {
     @SerializedName("email")
     @Expose
     private String email;
-    @SerializedName("email_verified_at")
-    @Expose
-    private Object emailVerifiedAt;
-    @SerializedName("created_at")
-    @Expose
-    private String createdAt;
-    @SerializedName("updated_at")
-    @Expose
-    private String updatedAt;
+
+    public User(Integer id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;
@@ -45,29 +42,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Object getEmailVerifiedAt() {
-        return emailVerifiedAt;
-    }
-
-    public void setEmailVerifiedAt(Object emailVerifiedAt) {
-        this.emailVerifiedAt = emailVerifiedAt;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }
