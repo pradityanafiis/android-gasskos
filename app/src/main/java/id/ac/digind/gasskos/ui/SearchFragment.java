@@ -76,25 +76,25 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             case R.id.v_filter_rating:
                 setImgTint(R.color.colorPrimary, imgFilterRating);
                 setTextViewColor(R.color.colorPrimary, tvFilterRating);
-                setImgTint(android.R.color.black, imgFilterGender, imgFilterHarga, imgFilterLokasi);
+                setImgTint(android.R.color.tertiary_text_light, imgFilterGender, imgFilterHarga, imgFilterLokasi);
                 setTextViewColor(android.R.color.tertiary_text_light, tvFilterGender, tvFilterHarga, tvFilterLokasi);
                 break;
             case R.id.v_filter_gender:
                 setImgTint(R.color.colorPrimary, imgFilterGender);
                 setTextViewColor(R.color.colorPrimary, tvFilterGender);
-                setImgTint(android.R.color.black, imgFilterRating, imgFilterHarga, imgFilterLokasi);
+                setImgTint(android.R.color.tertiary_text_light, imgFilterRating, imgFilterHarga, imgFilterLokasi);
                 setTextViewColor(android.R.color.tertiary_text_light, tvFilterRating, tvFilterHarga, tvFilterLokasi);
                 break;
             case R.id.v_filter_harga:
                 setImgTint(R.color.colorPrimary, imgFilterHarga);
                 setTextViewColor(R.color.colorPrimary, tvFilterHarga);
-                setImgTint(android.R.color.black, imgFilterRating, imgFilterGender, imgFilterLokasi);
+                setImgTint(android.R.color.tertiary_text_light, imgFilterRating, imgFilterGender, imgFilterLokasi);
                 setTextViewColor(android.R.color.tertiary_text_light, tvFilterRating, tvFilterGender, tvFilterLokasi);
                 break;
             case R.id.v_filter_lokasi:
                 setImgTint(R.color.colorPrimary, imgFilterLokasi);
                 setTextViewColor(R.color.colorPrimary, tvFilterLokasi);
-                setImgTint(android.R.color.black, imgFilterRating, imgFilterGender, imgFilterHarga);
+                setImgTint(android.R.color.tertiary_text_light, imgFilterRating, imgFilterGender, imgFilterHarga);
                 setTextViewColor(android.R.color.tertiary_text_light, tvFilterRating, tvFilterGender, tvFilterHarga);
                 break;
         }
