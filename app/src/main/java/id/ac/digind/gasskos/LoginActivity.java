@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -66,27 +67,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        ProgressDialog dialog=new ProgressDialog(this);
+        dialog.setMessage("Loading...");
+        dialog.setCancelable(false);
+        dialog.setInverseBackgroundForced(false);
+        dialog.show();
+
         Call<LoginResponse> call = RetrofitClient.getInstance().getAPI().login(email, password);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (!response.body().getError()){
+                    dialog.dismiss();
                     SharedPreferencesManager.getInstance(LoginActivity.this).saveUser(response.body().getUser(), response.body().getToken());
 
                     Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
 
-//                    finishAffinity();
-//                    startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-//                    Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_LONG).show();
                 }else{
+                    dialog.dismiss();
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                dialog.dismiss();
                 Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

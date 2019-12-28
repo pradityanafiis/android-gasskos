@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -34,16 +35,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REKOMENDASI PENGINAPAN UNTUK KAMU :" />
+                android:text="REKOMENDASI PENGINAPAN UNTUK KAMU :"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark2"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_rekomendasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
                 android:layout_marginBottom="50dp"
+                android:nestedScrollingEnabled="false"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="1"
+                app:spanCount="2"
                 tools:listitem="@layout/item_rekomendasi" />
 
         </LinearLayout>
