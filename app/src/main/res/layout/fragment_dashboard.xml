@@ -73,9 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_rekomendasi"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="2"/>
+                app:spanCount="2"
+                tools:listitem="@layout/item_rekomendasi" />
 
         </LinearLayout>
 
