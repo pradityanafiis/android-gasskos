@@ -15,4 +15,5 @@
     <string name="title_activity_detail_kost">Detail Kost</string>
     <string name="title_activity_basic">BasicActivity</string>
     <string name="title_activity_booking">BookingActivity</string>
+    <string name="profile_title">GassKoss - Akun</string>
 </resources>
