@@ -71,7 +71,8 @@
                 android:id="@+id/img_filter_gender"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_height_filter"
-                android:src="@mipmap/search_jenis" />
+                android:src="@mipmap/search_jenis"
+                android:tint="@android:color/tertiary_text_light"/>
 
             <TextView
                 android:id="@+id/tv_filter_gender"
@@ -97,7 +98,8 @@
                 android:id="@+id/img_filter_harga"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_height_filter"
-                android:src="@mipmap/search_harga" />
+                android:src="@mipmap/search_harga"
+                android:tint="@android:color/tertiary_text_light"/>
 
             <TextView
                 android:id="@+id/tv_filter_harga"
@@ -123,7 +125,8 @@
                 android:id="@+id/img_filter_lokasi"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dim_height_filter"
-                android:src="@mipmap/search_lokasi" />
+                android:src="@mipmap/search_lokasi"
+                android:tint="@android:color/tertiary_text_light"/>
 
             <TextView
                 android:id="@+id/tv_filter_lokasi"

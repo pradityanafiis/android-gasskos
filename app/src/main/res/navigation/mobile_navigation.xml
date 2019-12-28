@@ -20,6 +20,6 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="id.ac.digind.gasskos.ui.ProfileFragment"
-        android:label="Profile"
+        android:label="@string/profile_title"
         tools:layout="@layout/fragment_profile" />
 </navigation>

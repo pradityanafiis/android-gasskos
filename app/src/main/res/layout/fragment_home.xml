@@ -29,38 +29,6 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Daftarkan akun OVOmu sekarang!" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity=""
-                android:background="@mipmap/bg2_dashboard"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ovo" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="bottom"
-                    android:text="@string/deskripsi_ovo"
-                    android:textColor="@android:color/primary_text_light" />
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
                 android:layout_height="32dp" />
 
             <TextView
