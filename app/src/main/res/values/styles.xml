@@ -6,11 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-<<<<<<< HEAD
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-=======
         <item name="android:statusBarColor">@color/colorPrimaryDark2</item>
->>>>>>> 39eb969916f6e6596871aaef4c0106e9b804dc1f
         <item name="android:windowLightStatusBar">false</item>
     </style>
 

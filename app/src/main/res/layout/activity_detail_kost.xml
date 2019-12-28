@@ -83,9 +83,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76 .
-                Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3),
-                musholla, dapur, wifi, dsb."/>
+                android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76. Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3), musholla, dapur, wifi, dsb."/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_detailfoto"
