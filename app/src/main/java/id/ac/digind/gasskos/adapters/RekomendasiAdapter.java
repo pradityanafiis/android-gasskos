@@ -55,9 +55,9 @@ public class RekomendasiAdapter extends RecyclerView.Adapter<RekomendasiAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvNama = itemView.findViewById(R.id.tv_nama);
-            tvHarga = itemView.findViewById(R.id.tv_harga);
-            tvAlamat = itemView.findViewById(R.id.tv_alamat);
+            tvNama = itemView.findViewById(R.id.textViewNama);
+            tvHarga = itemView.findViewById(R.id.textViewGender);
+            tvAlamat = itemView.findViewById(R.id.textViewAlamat);
         }
     }
 }

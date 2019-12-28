@@ -2,25 +2,19 @@ package id.ac.digind.gasskos.ui;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.ImageViewCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
-
 import id.ac.digind.gasskos.R;
-import id.ac.digind.gasskos.adapters.RekomendasiAdapter;
-import id.ac.digind.gasskos.models.Kost;
 
 public class SearchFragment extends Fragment implements View.OnClickListener {
     private Context context;
@@ -29,8 +23,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private TextView tvFilterRating, tvFilterGender, tvFilterHarga, tvFilterLokasi;
     private ViewGroup vRating, vGender, vHarga;
     private ImageView imgStar1, imgStar2, imgStar3, imgStar4, imgStar5;
-
-    private int flagIdItemActive;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

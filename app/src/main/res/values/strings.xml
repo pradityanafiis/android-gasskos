@@ -2,14 +2,14 @@
     <string name="app_name">GassKos</string>
     <string name="title_activity_testing">TestingActivity</string>
     <string name="title_activity_buttom">buttom</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">GassKoss - Beranda</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="welcome_msg">Selamat Datang, GassKos adalah solusi terbaik yang bisa anda dapatkan untuk menyewa kamar penginapan sesuai dengan kriteria Anda</string>
     <string name="deskripsi_ovo">Potongan hingga 100 khusus pengguna OVO Aktifkan Akun OVO kamu sekarang juga!</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
-    <string name="search_title">Search</string>
-    <string name="person_title">Person</string>
+    <string name="search_title">GassKoss - Pencarian</string>
+    <string name="person_title">GassKoss - Akun</string>
     <string name="title_activity_notifikasi">Notifikasi</string>
     <string name="title_activity_riwayat">Riwayat Pesanan</string>
     <string name="title_activity_detail_kost">Detail Kost</string>

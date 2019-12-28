@@ -1,25 +1,19 @@
 package id.ac.digind.gasskos.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
-import id.ac.digind.gasskos.DashboardActivity;
 import id.ac.digind.gasskos.LoginActivity;
 import id.ac.digind.gasskos.R;
-import id.ac.digind.gasskos.adapters.RekomendasiAdapter;
-import id.ac.digind.gasskos.models.Kost;
-import id.ac.digind.gasskos.models.User;
 import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
@@ -38,9 +32,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         textViewEmail = view.findViewById(R.id.textViewEmail);
         view.findViewById(R.id.cardViewLogout).setOnClickListener(this);
 
-        User user = SharedPreferencesManager.getInstance(getActivity()).getUser();
-        textViewName.setText(user.getName());
-        textViewEmail.setText(user.getEmail());
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
+        textViewName.setText(sharedPreferences.getString("name", ""));
+        textViewEmail.setText(sharedPreferences.getString("email", ""));
     }
 
     public void logout() {

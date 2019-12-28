@@ -18,13 +18,6 @@
             android:weightSum="4"
             android:orientation="horizontal"
             android:padding="10dp">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/ic_star_24px" />
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -35,18 +28,18 @@
                     android:id="@+id/textViewNama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nama" />
+                    android:text="Nama"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPrimaryDark2"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No.Hp"/>
+                    android:text="Email"
+                    android:textColor="@color/colorPrimaryDark2" />
             </LinearLayout>
 
         </LinearLayout>
@@ -69,9 +62,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Riwayat"
-                android:layout_gravity="center"/>
+                android:text="Riwayat Transaksi"
+                android:textColor="@color/colorPrimaryDark2" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -97,9 +91,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Tambahkan Akun OVO"
-                android:layout_gravity="center"/>
+                android:textColor="@color/colorPrimaryDark2" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -125,9 +120,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Pengaturan Akun"
-                android:layout_gravity="center"/>
+                android:textColor="@color/colorPrimaryDark2" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -153,9 +149,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Kontak Kami"
-                android:layout_gravity="center"/>
+                android:textColor="@color/colorPrimaryDark2" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -184,12 +181,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Keluar" />
+                android:text="KELUAR"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_next_24px" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

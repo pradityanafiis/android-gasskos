@@ -25,7 +25,7 @@ public class SharedPreferencesManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString("token", token);
+        editor.putString("token", "Bearer " + token);
         editor.putInt("id_user", user.getId());
         editor.putString("name", user.getName());
         editor.putString("email", user.getEmail());

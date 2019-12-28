@@ -21,19 +21,19 @@
             android:src="@color/colorPrimary" />
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/textViewNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
 
         <TextView
-            android:id="@+id/tv_harga"
+            android:id="@+id/textViewGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
 
         <TextView
-            android:id="@+id/tv_alamat"
+            android:id="@+id/textViewAlamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
