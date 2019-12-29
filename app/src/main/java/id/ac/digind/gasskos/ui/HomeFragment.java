@@ -1,6 +1,7 @@
 package id.ac.digind.gasskos.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import java.util.List;
 import id.ac.digind.gasskos.API.RetrofitClient;
+import id.ac.digind.gasskos.DetailKostActivity;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.PenginapanAdapter;
 import id.ac.digind.gasskos.models.Penginapan;
@@ -23,11 +25,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
+    private Context context;
     private RecyclerView recyclerView;
     private PenginapanAdapter adapter;
     private List<Penginapan> penginapanList;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        context = container.getContext();
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -44,7 +48,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
                 penginapanList = response.body().getPenginapans();
-                adapter = new PenginapanAdapter(getActivity(), penginapanList);
+                adapter = new PenginapanAdapter(context, penginapanList);
                 recyclerView.setAdapter(adapter);
             }
 
