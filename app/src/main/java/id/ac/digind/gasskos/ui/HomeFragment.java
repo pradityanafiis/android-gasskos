@@ -12,11 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import java.util.List;
-
 import id.ac.digind.gasskos.API.RetrofitClient;
-import id.ac.digind.gasskos.LoginActivity;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.PenginapanAdapter;
 import id.ac.digind.gasskos.models.Penginapan;
