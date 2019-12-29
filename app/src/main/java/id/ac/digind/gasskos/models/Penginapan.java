@@ -3,7 +3,7 @@ package id.ac.digind.gasskos.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Penginapan {
+public class  Penginapan {
     @SerializedName("id_penginapan")
     @Expose
     private Integer idPenginapan;

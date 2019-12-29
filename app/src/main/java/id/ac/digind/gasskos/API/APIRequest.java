@@ -29,4 +29,10 @@ public interface APIRequest {
 
     @GET("penginapan")
     Call<PenginapanResponse> getPenginapan(@Header("Authorization") String token);
+
+    @POST("penginapan/i")
+    Call<PenginapanResponse> getDetailPenginapan(
+            @Header("Authorization") String token,
+            @Field("id_penginapan") Integer id_penginapan
+    );
 }
