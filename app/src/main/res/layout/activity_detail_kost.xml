@@ -30,21 +30,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15dp">
+            android:layout_margin="15dp"
+            android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPagerFoto"
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v4.view.ViewPager>
+                android:layout_height="300dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderCircularHandlerEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/textViewGender"
@@ -59,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/textViewNamaPenginapan"
@@ -74,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/textViewAlamat"
@@ -88,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/textViewFasilitas"
@@ -100,7 +112,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp"/>
+                android:layout_height="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,59 +120,51 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/b_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi5"
-                    android:text="Detail"/>
+                    android:text="Detail" />
 
                 <Space
                     android:layout_width="16dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <Button
+                    android:id="@+id/b_foto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi6"
-                    android:text="Foto"/>
+                    android:text="Foto" />
 
             </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_detailfoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="2"
-                tools:listitem="@layout/item_foto_penginapan" />
+                android:layout_height="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="12dp"
+                    android:layout_weight="1"
                     android:background="@drawable/tepi7"
-                    android:text="Kirim Pesan"/>
+                    android:text="WhatsApp Pemilik" />
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
                     android:layout_weight="1"
                     android:background="@drawable/tepi8"
-                    android:layout_margin="12dp"
                     android:text="Sewa Sekarang"
-                    android:textColor="#ffffff"/>
+                    android:textColor="#ffffff" />
 
             </LinearLayout>
         </LinearLayout>

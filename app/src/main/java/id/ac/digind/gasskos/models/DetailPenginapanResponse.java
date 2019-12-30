@@ -18,6 +18,10 @@ public class DetailPenginapanResponse {
     @Expose
     private List<Kamar> kamarList;
 
+    @SerializedName("foto")
+    @Expose
+    private List<FotoPenginapan> fotoPenginapanList;
+
     public Penginapan getPenginapan() {
         return penginapan;
     }
@@ -28,6 +32,10 @@ public class DetailPenginapanResponse {
 
     public List<Kamar> getKamarList() {
         return kamarList;
+    }
+
+    public List<FotoPenginapan> getFotoPenginapanList() {
+        return fotoPenginapanList;
     }
 
     public String fasilitasToString(List<Fasilitas> listFasilitas) {
