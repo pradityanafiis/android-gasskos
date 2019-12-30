@@ -302,7 +302,7 @@
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_rekomendasi" />
+            tools:listitem="@layout/item_penginapan" />
 
     </android.support.v4.widget.NestedScrollView>
 

@@ -69,7 +69,6 @@
                 android:textColor="@color/colorPrimaryDark2"
                 android:textSize="30sp" />
 
-
             <TextView
                 android:id="@+id/textViewAlamat"
                 android:layout_width="match_parent"
@@ -84,38 +83,22 @@
                 android:layout_height="wrap_content"
                 android:text="Fasilitas"
                 android:textColor="@color/colorPrimaryDark2" />
-        <Space
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp" />
+                android:layout_height="10dp" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/b_detail"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@drawable/tepi5"-->
-<!--                    android:text="Detail" />-->
-
-<!--                <Space-->
-<!--                    android:layout_width="16dp"-->
-<!--                    android:layout_height="wrap_content" />-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/b_foto"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@drawable/tepi6"-->
-<!--                    android:text="Foto" />-->
-
-<!--            </LinearLayout>-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_kamar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:listitem="@layout/item_kamar" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp" />
+                android:layout_height="10dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,11 +120,10 @@
                     android:layout_margin="12dp"
                     android:layout_weight="1"
                     android:background="@drawable/tepi8"
-                    android:text="Sewa Sekarang"
+                    android:text="Pesan Kamar"
                     android:textColor="#ffffff" />
 
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

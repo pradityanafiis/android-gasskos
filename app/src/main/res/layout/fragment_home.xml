@@ -50,7 +50,7 @@
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
                 app:spanCount="2"
-                tools:listitem="@layout/item_rekomendasi" />
+                tools:listitem="@layout/item_penginapan" />
 
         </LinearLayout>
 

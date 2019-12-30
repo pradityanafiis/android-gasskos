@@ -28,7 +28,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.item_kost, parent, false);
+        View contactView = inflater.inflate(R.layout.item_penginapan, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);

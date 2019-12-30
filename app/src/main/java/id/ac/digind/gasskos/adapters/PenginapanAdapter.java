@@ -28,7 +28,7 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
     @NonNull
     @Override
     public PenginapanViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.item_rekomendasi, viewGroup, false);
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.item_penginapan, viewGroup, false);
         return new PenginapanViewHolder(view);
     }
 
