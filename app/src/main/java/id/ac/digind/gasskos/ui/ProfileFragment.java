@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import id.ac.digind.gasskos.KontakKamiActivity;
 import id.ac.digind.gasskos.LoginActivity;
+import id.ac.digind.gasskos.PengaturanAkunActivity;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.RiwayatActivity;
 import id.ac.digind.gasskos.storage.SharedPreferencesManager;
@@ -65,10 +67,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(context, RiwayatActivity.class));
                 break;
             case R.id.v_pengaturanAkun:
-//                startActivity(new Intent(context, PengaturanAkunActivity.class));
+                startActivity(new Intent(context, PengaturanAkunActivity.class));
                 break;
             case R.id.v_kontak:
-//                startActivity(new Intent(context, KontakKamiActivity.class));
+                startActivity(new Intent(context, KontakKamiActivity.class));
                 break;
             case R.id.cardViewLogout:
                 logout();

@@ -16,4 +16,6 @@
     <string name="title_activity_basic">BasicActivity</string>
     <string name="title_activity_booking">BookingActivity</string>
     <string name="profile_title">GassKoss - Akun</string>
+    <string name="title_activity_pengaturan_akun">Pengaturan Akun</string>
+    <string name="title_activity_kontak_kami">Kontak Kami</string>
 </resources>
