@@ -14,9 +14,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import id.ac.digind.gasskos.adapters.PenginapanAdapter;
+import id.ac.digind.gasskos.models.Penginapan;
 import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements PenginapanAdapter.OnItemRvClicked {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +61,11 @@ public class DashboardActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void goToDetailActivity(Penginapan penginapan) {
+        //TODO : kirim data ke detail activity pakai bundle/intent extras
+        startActivity(new Intent(this, DetailKostActivity.class));
     }
 }

@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -86,24 +87,34 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
+        ProgressDialog dialog=new ProgressDialog(this);
+        dialog.setMessage("Loading...");
+        dialog.setCancelable(false);
+        dialog.setInverseBackgroundForced(false);
+        dialog.show();
+
         Call<ResponseBody> requestRegister = RetrofitClient.getInstance().getAPI().register(name, email, password, passwordConfirmation);
         requestRegister.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.code() == 400) {
+                    dialog.dismiss();
                     Toast.makeText(DaftarActivity.this, "Email sudah digunakan", Toast.LENGTH_LONG).show();
                 }else if(response.code() == 201) {
+                    dialog.dismiss();
                     Toast.makeText(DaftarActivity.this, "Berhasil registrasi", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(DaftarActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }else {
+                    dialog.dismiss();
                     Toast.makeText(DaftarActivity.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                dialog.dismiss();
                 Toast.makeText(DaftarActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos.API;
 
+import id.ac.digind.gasskos.models.DetailPenginapanResponse;
 import id.ac.digind.gasskos.models.LoginResponse;
 import id.ac.digind.gasskos.models.PenginapanResponse;
 import okhttp3.ResponseBody;
@@ -29,4 +30,10 @@ public interface APIRequest {
 
     @GET("penginapan")
     Call<PenginapanResponse> getPenginapan(@Header("Authorization") String token);
+
+    @POST("penginapan/i")
+    Call<DetailPenginapanResponse> getDetailPenginapan(
+            @Header("Authorization") String token,
+            @Field("id_penginapan") Integer id_penginapan
+    );
 }

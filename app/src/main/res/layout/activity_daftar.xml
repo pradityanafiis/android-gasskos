@@ -26,10 +26,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/birudasar"
-        android:capitalize="words"
         android:hint="Nama"
         android:hyphenationFrequency="normal"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:textColorLink="@color/colorPrimaryDark2"
         android:textCursorDrawable="@color/birudasar" />
 
