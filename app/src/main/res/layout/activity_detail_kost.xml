@@ -59,6 +59,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/b_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi5"
@@ -69,6 +70,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
+                    android:id="@+id/b_foto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi6"
@@ -81,6 +83,7 @@
                 android:layout_height="8dp"/>
 
             <TextView
+                android:id="@+id/tv_detailkos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76. Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3), musholla, dapur, wifi, dsb."/>
