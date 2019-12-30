@@ -1,7 +1,6 @@
 package id.ac.digind.gasskos.ui;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import java.util.List;
 import id.ac.digind.gasskos.API.RetrofitClient;
-import id.ac.digind.gasskos.DetailKostActivity;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.PenginapanAdapter;
 import id.ac.digind.gasskos.models.Penginapan;
@@ -55,7 +53,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<PenginapanResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
-
             }
         });
     }

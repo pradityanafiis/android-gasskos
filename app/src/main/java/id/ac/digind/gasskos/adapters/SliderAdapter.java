@@ -10,13 +10,18 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
+import java.util.List;
+
 import id.ac.digind.gasskos.R;
+import id.ac.digind.gasskos.models.FotoPenginapan;
 
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapterVH> {
     private Context context;
+    private List<FotoPenginapan> fotoPenginapans;
 
-    public SliderAdapter(Context context) {
+    public SliderAdapter(Context context, List<FotoPenginapan> fotoPenginapans) {
         this.context = context;
+        this.fotoPenginapans = fotoPenginapans;
     }
 
     @Override
@@ -27,42 +32,19 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
     @Override
     public void onBindViewHolder(SliderAdapterVH viewHolder, int position) {
-        viewHolder.textViewDescription.setText("This is slider item " + position);
-
-        switch (position) {
-            case 0:
-                Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-                        .into(viewHolder.imageViewBackground);
-                break;
-            case 1:
-                Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
-                        .into(viewHolder.imageViewBackground);
-                break;
-            case 2:
-                Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-                        .into(viewHolder.imageViewBackground);
-                break;
-            default:
-                Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-                        .into(viewHolder.imageViewBackground);
-                break;
-
-        }
-
+        viewHolder.textViewDescription.setText("Foto penginapan " + position);
+        FotoPenginapan foto = fotoPenginapans.get(position);
+        Glide.with(viewHolder.itemView)
+                .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + foto.getPath())
+                .into(viewHolder.imageViewBackground);
     }
 
     @Override
     public int getCount() {
-        //slider view count could be dynamic size
-        return 4;
+        return fotoPenginapans.size();
     }
 
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
-
         View itemView;
         ImageView imageViewBackground;
         TextView textViewDescription;

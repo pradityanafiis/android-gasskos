@@ -31,6 +31,7 @@ public interface APIRequest {
     @GET("penginapan")
     Call<PenginapanResponse> getPenginapan(@Header("Authorization") String token);
 
+    @FormUrlEncoded
     @POST("penginapan/i")
     Call<DetailPenginapanResponse> getDetailPenginapan(
             @Header("Authorization") String token,

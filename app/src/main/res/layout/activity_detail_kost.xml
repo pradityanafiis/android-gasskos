@@ -20,9 +20,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -32,6 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             android:orientation="vertical">
 
             <com.smarteist.autoimageslider.SliderView
@@ -57,20 +56,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
+                    android:id="@+id/textViewGender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harga perbulan"/>
+                    android:text="Gender"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/textViewNamaPenginapan"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Rp. 350.000"/>
+                    android:text="Nama Penginapan"
+                    android:textColor="@color/colorPrimaryDark2"
+                    android:textSize="30sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/textViewAlamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat"
+                    android:textColor="@color/colorPrimaryDark2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/textViewFasilitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fasilitas"
+                    android:textColor="@color/colorPrimaryDark2" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -82,39 +124,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi5"
-                    android:text="Detail"/>
+                    android:text="Detail" />
 
                 <Space
                     android:layout_width="16dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <Button
                     android:id="@+id/b_foto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tepi6"
-                    android:text="Foto"/>
+                    android:text="Foto" />
 
             </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp"/>
-
-            <TextView
-                android:id="@+id/tv_detailkos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76. Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3), musholla, dapur, wifi, dsb."/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_detailfoto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="2"
-                tools:listitem="@layout/item_rekomendasi" />
+                android:layout_height="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,24 +152,22 @@
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="12dp"
+                    android:layout_weight="1"
                     android:background="@drawable/tepi7"
-                    android:text="Kirim Pesan"/>
+                    android:text="WhatsApp Pemilik" />
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
                     android:layout_weight="1"
                     android:background="@drawable/tepi8"
-                    android:layout_margin="12dp"
                     android:text="Sewa Sekarang"
-                    android:textColor="#ffffff"/>
+                    android:textColor="#ffffff" />
 
             </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
-
 </android.support.design.widget.CoordinatorLayout>
