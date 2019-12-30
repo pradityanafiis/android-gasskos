@@ -45,29 +45,6 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
         penginapanViewHolder.textViewNama.setText(penginapan.getNama());
         penginapanViewHolder.textViewGender.setText(penginapan.getGender());
         penginapanViewHolder.textViewAlamat.setText(penginapan.getAlamat());
-
-//        penginapanViewHolder.cardViewPenginapan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                viewPenginapan(penginapan.getIdPenginapan());
-//            }
-//
-//            private void viewPenginapan(Integer idPenginapan) {
-//                SharedPreferences sharedPreferences = mCtx.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
-//                Call<DetailPenginapanResponse> getDetailPenginapan = RetrofitClient.getInstance().getAPI().getDetailPenginapan(sharedPreferences.getString("token", ""), idPenginapan);
-//                getDetailPenginapan.enqueue(new Callback<DetailPenginapanResponse>() {
-//                    @Override
-//                    public void onResponse(Call<DetailPenginapanResponse> call, Response<DetailPenginapanResponse> response) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<DetailPenginapanResponse> call, Throwable t) {
-//
-//                    }
-//                });
-//            }
-//        });
     }
 
     @Override

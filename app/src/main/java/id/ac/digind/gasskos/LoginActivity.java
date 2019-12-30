@@ -22,7 +22,6 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextEmail, editTextPassword;
-    private TextView daftar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

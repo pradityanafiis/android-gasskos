@@ -20,9 +20,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -32,26 +30,77 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPagerFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v4.view.ViewPager>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="5dp">
 
                 <TextView
+                    android:id="@+id/textViewGender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harga perbulan"/>
+                    android:text="Gender"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/textViewNamaPenginapan"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Rp. 350.000"/>
+                    android:text="Nama Penginapan"
+                    android:textColor="@color/colorPrimaryDark2"
+                    android:textSize="30sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textViewAlamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat"
+                    android:textColor="@color/colorPrimaryDark2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textViewFasilitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fasilitas"
+                    android:textColor="@color/colorPrimaryDark2" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,11 +129,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="8dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kos kami beralamatkan di Jl. Tegal Mulyorejo Baru No.76. Terdapat 2 lantai, kamar mandi sejumlah 6 (perlantai 3), musholla, dapur, wifi, dsb."/>
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_detailfoto"
                 android:layout_width="match_parent"
@@ -92,11 +136,12 @@
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
                 app:spanCount="2"
-                tools:listitem="@layout/item_rekomendasi" />
+                tools:listitem="@layout/item_foto_penginapan" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -118,9 +163,7 @@
                     android:textColor="#ffffff"/>
 
             </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
-
 </android.support.design.widget.CoordinatorLayout>

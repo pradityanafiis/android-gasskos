@@ -55,7 +55,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<PenginapanResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
-
             }
         });
     }

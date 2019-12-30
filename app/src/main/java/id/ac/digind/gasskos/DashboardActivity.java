@@ -66,6 +66,8 @@ public class DashboardActivity extends AppCompatActivity implements PenginapanAd
     @Override
     public void goToDetailActivity(Penginapan penginapan) {
         //TODO : kirim data ke detail activity pakai bundle/intent extras
-        startActivity(new Intent(this, DetailKostActivity.class));
+        Bundle bundle = new Bundle();
+        bundle.putInt("id_penginapan", penginapan.getIdPenginapan());
+        startActivity(new Intent(this, DetailKostActivity.class).putExtras(bundle));
     }
 }

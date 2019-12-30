@@ -29,4 +29,12 @@ public class DetailPenginapanResponse {
     public List<Kamar> getKamarList() {
         return kamarList;
     }
+
+    public String fasilitasToString(List<Fasilitas> listFasilitas) {
+        String fasilitasString = "";
+        for (Fasilitas fasilitas: listFasilitas) {
+            fasilitasString = fasilitasString + fasilitas.getNama() + " ";
+        }
+        return fasilitasString;
+    }
 }
