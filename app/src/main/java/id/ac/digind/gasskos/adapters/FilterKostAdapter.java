@@ -6,7 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -28,7 +31,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.item_kost, parent, false);
+        View contactView = inflater.inflate(R.layout.item_penginapan, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
@@ -43,6 +46,9 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         viewHolder.tvHarga.setText("Rp " + kost.getHarga());
         viewHolder.tvAlamat.setText(kost.getAlamat());
         viewHolder.tvGender.setText(kost.getGender());
+        Glide.with(viewHolder.itemView)
+                .load("https://gasskos.pradityanafiis.id/foto_penginapan/8_5e03651984c87.jpg")
+                .into(viewHolder.imageViewFotoPenginapan);
     }
 
     @Override
@@ -55,6 +61,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         public TextView tvHarga;
         public TextView tvAlamat;
         public TextView tvGender;
+        public ImageView imageViewFotoPenginapan;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +69,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
             tvHarga = itemView.findViewById(R.id.textViewGender);
             tvAlamat = itemView.findViewById(R.id.textViewAlamat);
             tvGender = itemView.findViewById(R.id.textViewGender);
+            imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);
         }
     }
 }

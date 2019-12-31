@@ -7,40 +7,36 @@ public class  Penginapan {
     @SerializedName("id_penginapan")
     @Expose
     private Integer idPenginapan;
-
     @SerializedName("id_users")
     @Expose
-    private String idUsers;
-
+    private Integer idUsers;
     @SerializedName("gender")
     @Expose
     private String gender;
-
     @SerializedName("nama")
     @Expose
     private String nama;
-
     @SerializedName("alamat")
     @Expose
     private String alamat;
-
     @SerializedName("latitude")
     @Expose
-    private String latitude;
-
+    private Double latitude;
     @SerializedName("longitude")
     @Expose
-    private String longitude;
-
+    private Double longitude;
     @SerializedName("telepon")
     @Expose
     private String telepon;
+    @SerializedName("foto")
+    @Expose
+    private String foto;
 
     public Integer getIdPenginapan() {
         return idPenginapan;
     }
 
-    public String getIdUsers() {
+    public Integer getIdUsers() {
         return idUsers;
     }
 
@@ -56,15 +52,19 @@ public class  Penginapan {
         return alamat;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
     public String getTelepon() {
         return telepon;
+    }
+
+    public String getFoto() {
+        return foto;
     }
 }

@@ -35,9 +35,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REKOMENDASI PENGINAPAN UNTUK KAMU :"
+                android:text="REKOMENDASI PENGINAPAN TERBARU"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@color/colorPrimaryDark2"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
@@ -48,7 +50,7 @@
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
                 app:spanCount="2"
-                tools:listitem="@layout/item_rekomendasi" />
+                tools:listitem="@layout/item_penginapan" />
 
         </LinearLayout>
 

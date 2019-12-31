@@ -5,13 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
-
 import java.util.List;
-
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.models.FotoPenginapan;
 
@@ -32,7 +28,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
     @Override
     public void onBindViewHolder(SliderAdapterVH viewHolder, int position) {
-        viewHolder.textViewDescription.setText("Foto penginapan " + position);
+        //viewHolder.textViewDescription.setText("Foto penginapan " + position);
         FotoPenginapan foto = fotoPenginapans.get(position);
         Glide.with(viewHolder.itemView)
                 .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + foto.getPath())
@@ -47,12 +43,12 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
         View itemView;
         ImageView imageViewBackground;
-        TextView textViewDescription;
+        //TextView textViewDescription;
 
         public SliderAdapterVH(View itemView) {
             super(itemView);
             imageViewBackground = itemView.findViewById(R.id.iv_auto_image_slider);
-            textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
+            //textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
             this.itemView = itemView;
         }
     }
