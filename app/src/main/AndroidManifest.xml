@@ -14,6 +14,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
+            android:name=".DetailTransaksiActivity"
+            android:label="@string/title_activity_detail_transaksi"
+            android:parentActivityName=".RiwayatActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.ac.digind.gasskos.RiwayatActivity" />
+        </activity>
+        <activity
             android:name=".KontakKamiActivity"
             android:label="@string/title_activity_kontak_kami"
             android:parentActivityName=".DashboardActivity"

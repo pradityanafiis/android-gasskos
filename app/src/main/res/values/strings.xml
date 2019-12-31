@@ -18,4 +18,5 @@
     <string name="profile_title">GassKoss - Akun</string>
     <string name="title_activity_pengaturan_akun">Pengaturan Akun</string>
     <string name="title_activity_kontak_kami">Kontak Kami</string>
+    <string name="title_activity_detail_transaksi">DetailTransaksiActivity</string>
 </resources>
