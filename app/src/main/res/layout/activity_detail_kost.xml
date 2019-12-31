@@ -56,7 +56,6 @@
                 android:id="@+id/textViewGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gender"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="18sp" />
 
@@ -64,16 +63,15 @@
                 android:id="@+id/textViewNamaPenginapan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Penginapan"
                 android:textAlignment="textStart"
                 android:textColor="@color/colorPrimaryDark2"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewAlamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alamat"
                 android:textColor="@color/colorPrimaryDark2"
                 android:textSize="14sp" />
 
@@ -81,7 +79,6 @@
                 android:id="@+id/textViewFasilitas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fasilitas"
                 android:textColor="@color/colorPrimaryDark2" />
             <Space
                 android:layout_width="match_parent"

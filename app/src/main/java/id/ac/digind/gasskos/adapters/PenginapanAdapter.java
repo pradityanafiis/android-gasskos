@@ -1,13 +1,18 @@
 package id.ac.digind.gasskos.adapters;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.models.Penginapan;
@@ -39,6 +44,9 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
         penginapanViewHolder.textViewNama.setText(penginapan.getNama());
         penginapanViewHolder.textViewGender.setText(penginapan.getGender());
         penginapanViewHolder.textViewAlamat.setText(penginapan.getAlamat());
+        Glide.with(penginapanViewHolder.itemView)
+                .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + penginapan.getFoto())
+                .into(penginapanViewHolder.imageViewFotoPenginapan);
     }
 
     @Override
@@ -48,6 +56,7 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
 
     class PenginapanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textViewNama, textViewGender, textViewAlamat;
+        ImageView imageViewFotoPenginapan;
         CardView cardViewPenginapan;
 
         public PenginapanViewHolder(@NonNull View itemView) {
@@ -56,6 +65,7 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
             textViewNama = itemView.findViewById(R.id.textViewNama);
             textViewGender = itemView.findViewById(R.id.textViewGender);
             textViewAlamat = itemView.findViewById(R.id.textViewAlamat);
+            imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);
             cardViewPenginapan = itemView.findViewById(R.id.cardViewPenginapan);
             cardViewPenginapan.setOnClickListener(this);
         }

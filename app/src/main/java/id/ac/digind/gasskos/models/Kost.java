@@ -71,7 +71,6 @@ public class Kost {
         for (int i = 1; i <= count; i++) {
             kosts.add(new Kost("Kost " + i, 300000, "Jalan-jalan", "putri", ""));
         }
-
         return kosts;
     }
 }

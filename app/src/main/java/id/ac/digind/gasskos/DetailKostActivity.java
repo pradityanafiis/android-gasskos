@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -55,10 +56,19 @@ public class DetailKostActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
-        Call<DetailPenginapanResponse> getDetailPenginapan = RetrofitClient.getInstance().getAPI().getDetailPenginapan(sharedPreferences.getString("token", ""), bundle.getInt("id_penginapan"));
+
+        ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setMessage("Loading...");
+        dialog.setCancelable(false);
+        dialog.setInverseBackgroundForced(false);
+        dialog.show();
+
+        Call<DetailPenginapanResponse> getDetailPenginapan = RetrofitClient.getInstance().getAPI()
+                .getDetailPenginapan(sharedPreferences.getString("token", ""), bundle.getInt("id_penginapan"));
         getDetailPenginapan.enqueue(new Callback<DetailPenginapanResponse>() {
             @Override
             public void onResponse(Call<DetailPenginapanResponse> call, Response<DetailPenginapanResponse> response) {
+                dialog.dismiss();
                 textViewGender.setText(response.body().getPenginapan().getGender());
                 textViewNamaPenginapan.setText(response.body().getPenginapan().getNama());
                 textViewAlamat.setText(response.body().getPenginapan().getAlamat());
@@ -81,6 +91,7 @@ public class DetailKostActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DetailPenginapanResponse> call, Throwable t) {
+                dialog.dismiss();
                 Toast.makeText(DetailKostActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
