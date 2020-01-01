@@ -1,5 +1,6 @@
 package id.ac.digind.gasskos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,7 +16,7 @@ import java.util.List;
 import id.ac.digind.gasskos.adapters.RiwayatAdapter;
 import id.ac.digind.gasskos.models.Riwayat;
 
-public class RiwayatActivity extends AppCompatActivity {
+public class RiwayatActivity extends AppCompatActivity implements RiwayatAdapter.OnItemRiwayatListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,13 @@ public class RiwayatActivity extends AppCompatActivity {
         List<Riwayat> dataList = Riwayat.dummyData(10);
         RiwayatAdapter adapter = new RiwayatAdapter(dataList);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void openDetailRiwayat(String id) {
+        Bundle bundle = new Bundle();
+        bundle.putString("id_riwayat", id);
+        startActivity(new Intent(this, DetailTransaksiActivity.class).putExtras(bundle));
     }
 
     @Override
