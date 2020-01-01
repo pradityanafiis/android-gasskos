@@ -10,7 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
+
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.models.Penginapan;
 
@@ -41,6 +45,18 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
         penginapanViewHolder.textViewNama.setText(penginapan.getNama());
         penginapanViewHolder.textViewGender.setText(penginapan.getGender());
         penginapanViewHolder.textViewAlamat.setText(penginapan.getAlamat());
+
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+
+        try {
+            if (penginapan.getMin().equals(penginapan.getMax())) {
+                penginapanViewHolder.textViewHarga.setText(formatRupiah.format(penginapan.getMin()));
+            } else {
+                penginapanViewHolder.textViewHarga.setText(formatRupiah.format(penginapan.getMin()) + "-" + formatRupiah.format(penginapan.getMax()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Glide.with(penginapanViewHolder.itemView)
                 .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + penginapan.getFoto())
                 .into(penginapanViewHolder.imageViewFotoPenginapan);
@@ -52,7 +68,7 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
     }
 
     class PenginapanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView textViewNama, textViewGender, textViewAlamat;
+        TextView textViewNama, textViewGender, textViewAlamat, textViewHarga;
         ImageView imageViewFotoPenginapan;
         CardView cardViewPenginapan;
 
@@ -62,6 +78,7 @@ public class PenginapanAdapter extends RecyclerView.Adapter<PenginapanAdapter.Pe
             textViewNama = itemView.findViewById(R.id.textViewNama);
             textViewGender = itemView.findViewById(R.id.textViewGender);
             textViewAlamat = itemView.findViewById(R.id.textViewAlamat);
+            textViewHarga = itemView.findViewById(R.id.textViewHarga);
             imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);
             cardViewPenginapan = itemView.findViewById(R.id.cardViewKamar);
             cardViewPenginapan.setOnClickListener(this);

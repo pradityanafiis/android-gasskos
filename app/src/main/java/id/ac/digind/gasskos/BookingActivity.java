@@ -1,7 +1,9 @@
 package id.ac.digind.gasskos;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -80,6 +82,9 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(Call<StandartResponse> call, Response<StandartResponse> response) {
                 Toast.makeText(BookingActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(BookingActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
 
             @Override
