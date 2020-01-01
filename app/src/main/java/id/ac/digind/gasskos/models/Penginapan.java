@@ -31,6 +31,13 @@ public class  Penginapan {
     @SerializedName("foto")
     @Expose
     private String foto;
+    @SerializedName("min")
+    @Expose
+    private Integer min;
+    @SerializedName("max")
+    @Expose
+    private Integer max;
+
 
     public Integer getIdPenginapan() {
         return idPenginapan;
@@ -66,5 +73,13 @@ public class  Penginapan {
 
     public String getFoto() {
         return foto;
+    }
+
+    public Integer getMin() {
+        return min;
+    }
+
+    public Integer getMax() {
+        return max;
     }
 }
