@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.models.Kost;
@@ -56,6 +58,18 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         viewHolder.tvGender.setText(penginapan.getGender());
         viewHolder.tvAlamat.setText(penginapan.getAlamat());
 
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+
+        try {
+            if (penginapan.getMin().equals(penginapan.getMax())) {
+                viewHolder.tvHarga.setText(formatRupiah.format(penginapan.getMin()));
+            } else {
+                viewHolder.tvHarga.setText(formatRupiah.format(penginapan.getMin()) + "-" + formatRupiah.format(penginapan.getMax()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Glide.with(viewHolder.itemView)
                 .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + penginapan.getFoto())
                 .into(viewHolder.imageViewFotoPenginapan);
@@ -77,7 +91,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         public ViewHolder(View itemView) {
             super(itemView);
             tvNama = itemView.findViewById(R.id.textViewNama);
-            //tvHarga = itemView.findViewById(R.id.textViewGender);
+            tvHarga = itemView.findViewById(R.id.textViewHarga);
             tvAlamat = itemView.findViewById(R.id.textViewAlamat);
             tvGender = itemView.findViewById(R.id.textViewGender);
             imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);

@@ -23,13 +23,30 @@
             android:src="@color/colorPrimary"
             android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:id="@+id/textViewGender"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@android:color/holo_red_dark"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewHarga"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text=""
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textViewNama"
