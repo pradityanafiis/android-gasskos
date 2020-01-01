@@ -226,7 +226,8 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Pria" />
+            android:text="Pria"
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/tv_wanita"

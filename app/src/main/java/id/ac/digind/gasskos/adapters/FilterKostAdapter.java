@@ -21,11 +21,15 @@ import id.ac.digind.gasskos.models.Penginapan;
 public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.ViewHolder> {
 
     private Context context;
-    private List<Kost> dataList;
     private List<Penginapan> penginapanList;
 
     public FilterKostAdapter(List<Penginapan> penginapanList) {
         this.penginapanList = penginapanList;
+    }
+
+    public void clearItems() {
+        penginapanList.clear();
+        notifyDataSetChanged();
     }
 
     @Override

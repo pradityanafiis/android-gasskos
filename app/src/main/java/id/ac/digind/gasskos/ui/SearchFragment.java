@@ -17,11 +17,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.FilterKostAdapter;
 import id.ac.digind.gasskos.models.Kost;
+import id.ac.digind.gasskos.models.Penginapan;
 import id.ac.digind.gasskos.models.PenginapanResponse;
+import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,6 +42,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private TextView tvMaps;
     private RecyclerView recyclerView;
     private FilterKostAdapter adapter;
+
+    private String flagGender = "Pria";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -86,6 +92,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvMaps = v.findViewById(R.id.tv_maps);
 
         recyclerView = v.findViewById(R.id.rv_kost);
+        adapter = new FilterKostAdapter(new ArrayList<Penginapan>());
     }
 
     private void addListener() {
@@ -107,6 +114,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        clearAdapterItem();
+
         switch (view.getId()) {
             case R.id.v_filter_rating:
                 setImgTint(R.color.colorPrimary, imgFilterRating);
@@ -127,6 +136,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 setVisibility(View.GONE, vRating, vHarga);
                 vItem.setVisibility(View.VISIBLE);
                 tvMaps.setVisibility(View.GONE);
+                getPenginapanGender(flagGender);
                 break;
             case R.id.v_filter_harga:
                 setImgTint(R.color.colorPrimary, imgFilterHarga);
@@ -174,7 +184,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(false);
                 tvWanita.setClickable(true);
                 tvCampuran.setClickable(true);
-                getPenginapanGender("Pria");
+                flagGender = "Pria";
+                getPenginapanGender(flagGender);
                 break;
             case R.id.tv_wanita:
                 setTextViewColor(R.color.colorPrimary, tvWanita);
@@ -182,7 +193,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(true);
                 tvWanita.setClickable(false);
                 tvCampuran.setClickable(true);
-                getPenginapanGender("Wanita");
+                flagGender = "Wanita";
+                getPenginapanGender(flagGender);
                 break;
             case R.id.tv_campuran:
                 setTextViewColor(R.color.colorPrimary, tvCampuran);
@@ -190,7 +202,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(true);
                 tvWanita.setClickable(true);
                 tvCampuran.setClickable(false);
-                getPenginapanGender("Campur");
+                flagGender = "Campur";
+                getPenginapanGender(flagGender);
                 break;
         }
     }
@@ -246,9 +259,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    void getPenginapanGender(String gender) {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
-        Call<PenginapanResponse> getPenginapanGender = RetrofitClient.getInstance().getAPI().getPenginapanGender(sharedPreferences.getString("token", ""), gender);
+    private void clearAdapterItem() {
+        adapter.clearItems();
+    }
+
+    private void getPenginapanGender(String gender) {
+        SharedPreferencesManager spm = SharedPreferencesManager.getInstance(context);
+        Call<PenginapanResponse> getPenginapanGender = RetrofitClient.getInstance().getAPI().getPenginapanGender(spm.getToken(), gender);
         getPenginapanGender.enqueue(new Callback<PenginapanResponse>() {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
@@ -262,4 +279,5 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
+
 }
