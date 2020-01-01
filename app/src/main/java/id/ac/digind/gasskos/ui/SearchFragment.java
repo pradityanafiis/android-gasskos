@@ -102,7 +102,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvMaps = v.findViewById(R.id.tv_maps);
 
         recyclerView = v.findViewById(R.id.rv_kost);
-        adapter = new FilterKostAdapter(new ArrayList<Penginapan>());
+        adapter = new FilterKostAdapter(new ArrayList<Penginapan>(), context);
     }
 
     private void addListener() {
@@ -299,7 +299,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         getPenginapanGender.enqueue(new Callback<PenginapanResponse>() {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
-                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                adapter = new FilterKostAdapter(response.body().getPenginapans(), context);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -316,7 +316,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         getPenginapanRating.enqueue(new Callback<PenginapanResponse>() {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
-                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                adapter = new FilterKostAdapter(response.body().getPenginapans(), context);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -334,7 +334,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
                 Log.d("debug", "onResponse: " + response.toString());
-                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                adapter = new FilterKostAdapter(response.body().getPenginapans(), context);
                 recyclerView.setAdapter(adapter);
             }
 

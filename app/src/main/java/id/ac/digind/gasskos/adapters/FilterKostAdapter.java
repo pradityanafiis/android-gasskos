@@ -3,6 +3,7 @@ package id.ac.digind.gasskos.adapters;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,11 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
 
     private Context context;
     private List<Penginapan> penginapanList;
+    private OnItemFilterClicked mListener;
 
-    public FilterKostAdapter(List<Penginapan> penginapanList) {
+    public FilterKostAdapter(List<Penginapan> penginapanList, Context context) {
         this.penginapanList = penginapanList;
+        this.mListener = (OnItemFilterClicked) context;
     }
 
     public void clearItems() {
@@ -63,12 +66,13 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         return penginapanList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvNama;
         public TextView tvHarga;
         public TextView tvAlamat;
         public TextView tvGender;
         public ImageView imageViewFotoPenginapan;
+        CardView cardViewPenginapan;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -77,6 +81,17 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
             tvAlamat = itemView.findViewById(R.id.textViewAlamat);
             tvGender = itemView.findViewById(R.id.textViewGender);
             imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);
+            cardViewPenginapan = itemView.findViewById(R.id.cardViewKamar);
+            cardViewPenginapan.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            mListener.goToDetailActivity(penginapanList.get(getAdapterPosition()));
+        }
+    }
+
+    public interface OnItemFilterClicked {
+        void goToDetailActivity(Penginapan penginapan);
     }
 }

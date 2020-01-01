@@ -14,11 +14,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import id.ac.digind.gasskos.adapters.FilterKostAdapter;
 import id.ac.digind.gasskos.adapters.PenginapanAdapter;
 import id.ac.digind.gasskos.models.Penginapan;
 import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 
-public class DashboardActivity extends AppCompatActivity implements PenginapanAdapter.OnItemRvClicked {
+public class DashboardActivity extends AppCompatActivity implements PenginapanAdapter.OnItemRvClicked, FilterKostAdapter.OnItemFilterClicked {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
