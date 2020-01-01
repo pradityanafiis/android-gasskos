@@ -259,18 +259,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="9"
+        android:weightSum="15"
         android:visibility="gone">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4">
+            android:layout_weight="5">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_harga_min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Harga Maksimal" />
+                android:hint="Minimal"
+                android:inputType="number"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -282,14 +284,32 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4">
+            android:layout_weight="5">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_harga_max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Harga Minimal" />
+                android:hint="Maksimal"
+                android:inputType="number"/>
 
         </android.support.design.widget.TextInputLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_filter_harga"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center"
+            android:text=">"
+            style="@style/Widget.AppCompat.Button.Colored" />
+
     </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView

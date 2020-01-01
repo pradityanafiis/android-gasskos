@@ -44,4 +44,19 @@ public interface APIRequest {
         @Header("Authorization") String token,
         @Field("gender") String gender
     );
+
+    @FormUrlEncoded
+    @POST("penginapan/r")
+    Call<PenginapanResponse> getPenginapanRating (
+            @Header("Authorization") String token,
+            @Field("gender") String star
+    );
+
+    @FormUrlEncoded
+    @POST("penginapan/h")
+    Call<PenginapanResponse> getPenginapanHarga (
+            @Header("Authorization") String token,
+            @Field("harga_bawah") String hargaBawah,
+            @Field("harga_atas") String hargaAtas
+    );
 }

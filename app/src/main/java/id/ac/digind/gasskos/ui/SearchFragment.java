@@ -6,14 +6,17 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.ImageViewCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,12 +41,15 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private ViewGroup vRating, vGender, vHarga;
     private ImageView imgStar1, imgStar2, imgStar3, imgStar4, imgStar5;
     private TextView tvPria, tvWanita, tvCampuran;
+    private TextInputEditText etHargaMin, etHargaMax;
+    private Button btnFilterHarga;
     private NestedScrollView vItem;
     private TextView tvMaps;
     private RecyclerView recyclerView;
     private FilterKostAdapter adapter;
 
     private String flagGender = "Pria";
+    private String flagHargaBawah, flagHargaAtas;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +93,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvWanita = v.findViewById(R.id.tv_wanita);
         tvCampuran = v.findViewById(R.id.tv_campuran);
 
+        etHargaMin = v.findViewById(R.id.et_harga_min);
+        etHargaMax = v.findViewById(R.id.et_harga_max);
+        btnFilterHarga = v.findViewById(R.id.btn_filter_harga);
+
         vItem = v.findViewById(R.id.v_item);
 
         tvMaps = v.findViewById(R.id.tv_maps);
@@ -110,6 +120,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvPria.setOnClickListener(this);
         tvWanita.setOnClickListener(this);
         tvCampuran.setOnClickListener(this);
+
+        btnFilterHarga.setOnClickListener(this);
     }
 
     @Override
@@ -206,6 +218,24 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 getPenginapanGender(flagGender);
                 break;
         }
+
+        if (view.getId() == btnFilterHarga.getId()) {
+            if (etHargaMin.getEditableText().toString().isEmpty()) {
+                etHargaMin.setError("Harus diisi");
+            } else {
+                etHargaMin.setError(null);
+            }
+
+            if (etHargaMax.getEditableText().toString().isEmpty()) {
+                etHargaMax.setError("Harus diisi");
+            } else {
+                etHargaMax.setError(null);
+            }
+
+            if (!etHargaMin.getEditableText().toString().isEmpty() && !etHargaMax.getEditableText().toString().isEmpty()) {
+                getPenginapanHarga(etHargaMin.getEditableText().toString(), etHargaMax.getEditableText().toString());
+            }
+        }
     }
 
     private void setImgTint(int color, ImageView... imgs) {
@@ -280,4 +310,38 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    private void getPenginapanRating(int star) {
+        SharedPreferencesManager spm = SharedPreferencesManager.getInstance(context);
+        Call<PenginapanResponse> getPenginapanRating = RetrofitClient.getInstance().getAPI().getPenginapanRating(spm.getToken(), String.valueOf(star));
+        getPenginapanRating.enqueue(new Callback<PenginapanResponse>() {
+            @Override
+            public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
+                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<PenginapanResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getPenginapanHarga(String min, String max) {
+        SharedPreferencesManager spm = SharedPreferencesManager.getInstance(context);
+        Call<PenginapanResponse> getPenginapanHarga = RetrofitClient.getInstance().getAPI().getPenginapanHarga(spm.getToken(), min, max);
+        getPenginapanHarga.enqueue(new Callback<PenginapanResponse>() {
+            @Override
+            public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
+                Log.d("debug", "onResponse: " + response.toString());
+                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<PenginapanResponse> call, Throwable t) {
+                Log.d("debug", "onFailure: " + call.toString());
+            }
+        });
+    }
 }
