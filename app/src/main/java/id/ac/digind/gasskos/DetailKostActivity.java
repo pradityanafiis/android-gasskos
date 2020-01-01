@@ -19,10 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.adapters.KamarAdapter;
-import id.ac.digind.gasskos.adapters.PenginapanAdapter;
 import id.ac.digind.gasskos.models.DetailPenginapanResponse;
 import id.ac.digind.gasskos.models.Kamar;
-import id.ac.digind.gasskos.models.Penginapan;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,7 +53,7 @@ public class DetailKostActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         textViewGender = findViewById(R.id.textViewGender);
-        textViewNamaPenginapan = findViewById(R.id.textViewNamaPenginapan);
+        textViewNamaPenginapan = findViewById(R.id.textViewTipeKamar);
         textViewAlamat = findViewById(R.id.textViewAlamat);
         textViewFasilitas = findViewById(R.id.textViewFasilitas);
         buttonWhatsapp = findViewById(R.id.buttonWhatsapp);
