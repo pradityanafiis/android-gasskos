@@ -1,6 +1,7 @@
 package id.ac.digind.gasskos.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import id.ac.digind.gasskos.API.RetrofitClient;
+import id.ac.digind.gasskos.MapsActivity;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.FilterKostAdapter;
 import id.ac.digind.gasskos.models.Kost;
@@ -122,6 +124,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvCampuran.setOnClickListener(this);
 
         btnFilterHarga.setOnClickListener(this);
+
+        tvMaps.setOnClickListener(this);
     }
 
     @Override
@@ -161,13 +165,14 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvMaps.setVisibility(View.GONE);
                 break;
             case R.id.v_filter_lokasi:
-                setImgTint(R.color.colorPrimary, imgFilterLokasi);
-                setTextViewColor(R.color.colorPrimary, tvFilterLokasi);
-                setImgTint(android.R.color.tertiary_text_light, imgFilterRating, imgFilterGender, imgFilterHarga);
-                setTextViewColor(android.R.color.tertiary_text_light, tvFilterRating, tvFilterGender, tvFilterHarga);
-                setVisibility(View.GONE, vRating, vGender, vHarga);
-                vItem.setVisibility(View.GONE);
-                tvMaps.setVisibility(View.VISIBLE);
+                startActivity(new Intent(context, MapsActivity.class));
+//                setImgTint(R.color.colorPrimary, imgFilterLokasi);
+//                setTextViewColor(R.color.colorPrimary, tvFilterLokasi);
+//                setImgTint(android.R.color.tertiary_text_light, imgFilterRating, imgFilterGender, imgFilterHarga);
+//                setTextViewColor(android.R.color.tertiary_text_light, tvFilterRating, tvFilterGender, tvFilterHarga);
+//                setVisibility(View.GONE, vRating, vGender, vHarga);
+//                vItem.setVisibility(View.GONE);
+//                tvMaps.setVisibility(View.VISIBLE);
                 break;
         }
 
@@ -236,6 +241,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 getPenginapanHarga(etHargaMin.getEditableText().toString(), etHargaMax.getEditableText().toString());
             }
         }
+
+        if (view.getId() == tvMaps.getId()) {
+
+        }
     }
 
     private void setImgTint(int color, ImageView... imgs) {
@@ -287,6 +296,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         } else {
             imgStar5.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_border_24px));
         }
+
+        getPenginapanRating(count);
     }
 
     private void clearAdapterItem() {

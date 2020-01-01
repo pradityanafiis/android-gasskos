@@ -329,9 +329,12 @@
 
     <TextView
         android:id="@+id/tv_maps"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ini Maps"
-        android:visibility="gone"/>
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"/>
 
 </LinearLayout>
