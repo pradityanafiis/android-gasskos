@@ -23,7 +23,7 @@ import id.ac.digind.gasskos.storage.SharedPreferencesManager;
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     private Context context;
     private TextView textViewName, textViewEmail;
-    private ViewGroup vRiwayat, vPengaturanAkun, vKontak;
+    private ViewGroup vRiwayat, vPengaturanAkun;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -42,10 +42,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         vRiwayat = view.findViewById(R.id.v_riwayat);
         vPengaturanAkun = view.findViewById(R.id.v_pengaturanAkun);
-        vKontak = view.findViewById(R.id.v_kontak);
         vRiwayat.setOnClickListener(this);
         vPengaturanAkun.setOnClickListener(this);
-        vKontak.setOnClickListener(this);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
         textViewName.setText(sharedPreferences.getString("name", ""));
@@ -68,9 +66,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.v_pengaturanAkun:
                 startActivity(new Intent(context, PengaturanAkunActivity.class));
-                break;
-            case R.id.v_kontak:
-                startActivity(new Intent(context, KontakKamiActivity.class));
                 break;
             case R.id.cardViewLogout:
                 logout();
