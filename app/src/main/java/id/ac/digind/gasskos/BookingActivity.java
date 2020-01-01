@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.Calendar;
@@ -17,11 +17,13 @@ import java.util.Locale;
 
 import id.ac.digind.gasskos.models.Kamar;
 
-public class BookingActivity extends AppCompatActivity {
+public class BookingActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static String extra_kamar = "Extra Kamar";
     private TextView textViewTipeKamar, textViewHarga;
-    private EditText datePicker ;
+    private EditText tanggalMasuk;
+    private Button datePick, buttonPesanKamar;
+    private DatePickerDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +37,15 @@ public class BookingActivity extends AppCompatActivity {
 
         textViewTipeKamar = findViewById(R.id.textViewTipeKamar);
         textViewHarga = findViewById(R.id.textViewHarga);
-        datePicker = findViewById(R.id.datePicker);
+        tanggalMasuk = findViewById(R.id.tanggalMasuk);
+        datePick = findViewById(R.id.datePick);
+        buttonPesanKamar = findViewById(R.id.buttonPesanKamar);
 
         textViewTipeKamar.setText(kamar.getTipe());
         textViewHarga.setText(formatRupiah.format((double)kamar.getHarga()));
 
-        datePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
-
-                DatePickerDialog dialog = new DatePickerDialog(BookingActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        datePicker.setText(year + "/" + month + "/" + dayOfMonth);
-                    }
-                }, year, month, day);
-            }
-        });
+        datePick.setOnClickListener(this);
+        buttonPesanKamar.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +57,33 @@ public class BookingActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void pesanKamar(){
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.datePick:
+                Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+                dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        tanggalMasuk.setText(year + "-" + month+1 + "-" + dayOfMonth);
+                    }
+                }, year, month, day);
+                dialog.show();
+                break;
+
+            case R.id.buttonPesanKamar:
+                pesanKamar();
+                break;
         }
     }
 }
