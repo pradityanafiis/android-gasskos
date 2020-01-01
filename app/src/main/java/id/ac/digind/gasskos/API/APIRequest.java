@@ -1,9 +1,11 @@
 package id.ac.digind.gasskos.API;
 
 import id.ac.digind.gasskos.models.DetailPenginapanResponse;
+import id.ac.digind.gasskos.models.DetailTransaksiResponse;
 import id.ac.digind.gasskos.models.LoginResponse;
 import id.ac.digind.gasskos.models.PenginapanResponse;
 import id.ac.digind.gasskos.models.StandartResponse;
+import id.ac.digind.gasskos.models.TransaksiResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -30,6 +32,9 @@ public interface APIRequest {
     );
 
     @GET("penginapan")
+    Call<PenginapanResponse> getAllPenginapan(@Header("Authorization") String token);
+
+    @GET("penginapan/n")
     Call<PenginapanResponse> getPenginapan(@Header("Authorization") String token);
 
     @FormUrlEncoded
@@ -62,6 +67,20 @@ public interface APIRequest {
     );
 
     @FormUrlEncoded
+    @POST("transaksi")
+    Call<TransaksiResponse> getTransaksi (
+        @Header("Authorization") String token,
+        @Field("id_user") Integer id_user
+    );
+
+    @FormUrlEncoded
+    @POST("transaksi/i")
+    Call<DetailTransaksiResponse> getDetailTransaksi (
+            @Header("Authorization") String token,
+            @Field("id_transaksi") Integer id_transaksi
+    );
+
+    @FormUrlEncoded
     @POST("transaksi/store")
     Call<StandartResponse> storeTransaksi (
         @Header("Authorization") String token,
@@ -70,4 +89,5 @@ public interface APIRequest {
         @Field("tanggal_masuk") String tanggal_masuk,
         @Field("durasi") Integer durasi
     );
+
 }

@@ -14,7 +14,7 @@
     <string name="title_activity_riwayat">GassKos - Riwayat Transaksi</string>
     <string name="title_activity_detail_kost">GassKos - Detail Penginapan</string>
     <string name="title_activity_basic">BasicActivity</string>
-    <string name="title_activity_booking">Booking</string>
+    <string name="title_activity_booking">GassKos - Pesan Kamar</string>
     <string name="profile_title">GassKoss - Akun</string>
     <string name="title_activity_pengaturan_akun">Pengaturan Akun</string>
     <string name="title_activity_kontak_kami">Kontak Kami</string>

@@ -52,7 +52,6 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
         textViewTipeKamar = findViewById(R.id.textViewTipeKamar);
         textViewHarga = findViewById(R.id.textViewHarga);
         tanggalMasuk = findViewById(R.id.tanggalMasuk);
-        datePick = findViewById(R.id.datePick);
         durasi = findViewById(R.id.editTextDurasi);
         buttonPesanKamar = findViewById(R.id.buttonPesanKamar);
 
@@ -83,7 +82,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(Call<StandartResponse> call, Response<StandartResponse> response) {
                 Toast.makeText(BookingActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(BookingActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(BookingActivity.this, RiwayatActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

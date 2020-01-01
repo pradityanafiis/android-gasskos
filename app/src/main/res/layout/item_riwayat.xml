@@ -21,9 +21,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/imageViewFotoPenginapan"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:src="@drawable/profil"/>
+                android:src="@drawable/profil" />
 
             <Space
                 android:layout_width="match_parent"
@@ -57,27 +58,34 @@
                 android:id="@+id/tv_namakos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kos Bu Melati"/>
+                android:text="Kos Bu Melati"
+                android:textColor="@color/colorPrimaryDark2"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="8dp"
                 android:layout_height="match_parent"/>
 
             <TextView
-                android:id="@+id/tv_waktubayar"
+                android:id="@+id/tv_waktu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dibayar pada 12/12/2019"/>
+                android:text="Dibayar pada 12/12/2019"
+                android:textColor="@color/colorPrimaryDark2"
+                android:textSize="14sp" />
 
             <Space
                 android:layout_width="8dp"
                 android:layout_height="match_parent"/>
 
             <TextView
-                android:id="@+id/tv_id"
+                android:id="@+id/tv_harga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8119000001"/>
+                android:text="Rp......."
+                android:textColor="@color/colorPrimaryDark2"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

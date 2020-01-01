@@ -52,7 +52,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
         getPenginapan();
     }
 
@@ -66,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void getPenginapan(){
         SharedPreferences sharedPreferences = getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
-        Call<PenginapanResponse> getPenginapan = RetrofitClient.getInstance().getAPI().getPenginapan(sharedPreferences.getString("token", ""));
+        Call<PenginapanResponse> getPenginapan = RetrofitClient.getInstance().getAPI().getAllPenginapan(sharedPreferences.getString("token", ""));
         getPenginapan.enqueue(new Callback<PenginapanResponse>() {
             @Override
             public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {

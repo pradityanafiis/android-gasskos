@@ -47,15 +47,6 @@
                 android:value="id.ac.digind.gasskos.RiwayatActivity" />
         </activity>
         <activity
-            android:name=".KontakKamiActivity"
-            android:label="@string/title_activity_kontak_kami"
-            android:parentActivityName=".DashboardActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="id.ac.digind.gasskos.DashboardActivity" />
-        </activity>
-        <activity
             android:name=".PengaturanAkunActivity"
             android:label="@string/title_activity_pengaturan_akun"
             android:parentActivityName=".DashboardActivity"

@@ -1,6 +1,8 @@
 package id.ac.digind.gasskos;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,8 +15,14 @@ import android.view.View;
 
 import java.util.List;
 
+import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.adapters.RiwayatAdapter;
 import id.ac.digind.gasskos.models.Riwayat;
+import id.ac.digind.gasskos.models.Transaksi;
+import id.ac.digind.gasskos.models.TransaksiResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RiwayatActivity extends AppCompatActivity implements RiwayatAdapter.OnItemRiwayatListener{
 
@@ -26,16 +34,29 @@ public class RiwayatActivity extends AppCompatActivity implements RiwayatAdapter
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView = findViewById(R.id.rv_notifikasi);
-        List<Riwayat> dataList = Riwayat.dummyData(10);
-        RiwayatAdapter adapter = new RiwayatAdapter(dataList);
-        recyclerView.setAdapter(adapter);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
+        Call<TransaksiResponse> getTransaksi = RetrofitClient.getInstance().getAPI().getTransaksi(sharedPreferences.getString("token", ""), sharedPreferences.getInt("id_user", 0));
+        getTransaksi.enqueue(new Callback<TransaksiResponse>() {
+            @Override
+            public void onResponse(Call<TransaksiResponse> call, Response<TransaksiResponse> response) {
+                RecyclerView recyclerView = findViewById(R.id.rv_RiwayatTransaksi);
+                List<Transaksi> transaksiList = response.body().getTransaksi();
+                RiwayatAdapter adapter = new RiwayatAdapter(transaksiList);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<TransaksiResponse> call, Throwable t) {
+
+            }
+        });
+
     }
 
     @Override
-    public void openDetailRiwayat(String id) {
+    public void openDetailRiwayat(Integer id) {
         Bundle bundle = new Bundle();
-        bundle.putString("id_riwayat", id);
+        bundle.putInt("id_transaksi", id);
         startActivity(new Intent(this, DetailTransaksiActivity.class).putExtras(bundle));
     }
 

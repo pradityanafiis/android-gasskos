@@ -7,20 +7,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import id.ac.digind.gasskos.R;
-import id.ac.digind.gasskos.models.Riwayat;
+import id.ac.digind.gasskos.models.Transaksi;
 
 public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHolder> {
 
-    private List<Riwayat> dataList;
+    private List<Transaksi> transaksiList;
     private OnItemRiwayatListener mListener;
 
-    public RiwayatAdapter(List<Riwayat> dataList) {
-        this.dataList = dataList;
+    public RiwayatAdapter(List<Transaksi> transaksiList) {
+        this.transaksiList = transaksiList;
     }
 
     @Override
@@ -39,43 +44,49 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHold
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-            Riwayat riwayat = dataList.get(position);
+            Transaksi transaksi = transaksiList.get(position);
+            NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
 
-            viewHolder.tvNama.setText(riwayat.getNamakos());
-            viewHolder.tvStatus.setText(riwayat.getStatus());
-            viewHolder.tvWaktuBayar.setText(riwayat.getWaktuBayar());
-            viewHolder.tvId.setText(riwayat.getId());
+            viewHolder.tvNama.setText(transaksi.getPenginapan().getNama());
+            viewHolder.tvStatus.setText(transaksi.getStatus());
+            viewHolder.tvWaktu.setText(transaksi.getTanggalMasuk() + " s/d " + transaksi.getTanggalKeluar());
+            viewHolder.tvHarga.setText(formatRupiah.format(transaksi.getTotalHarga()));
+            Glide.with(viewHolder.itemView)
+                    .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + transaksi.getFoto())
+                    .into(viewHolder.ivFotoPenginapan);
         }
 
         @Override
         public int getItemCount() {
-            return dataList.size();
+            return transaksiList.size();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
             public TextView tvNama;
             public TextView tvStatus;
-            public TextView tvWaktuBayar;
-            public TextView tvId;
+            public TextView tvWaktu;
+            public TextView tvHarga;
+            public ImageView ivFotoPenginapan;
             CardView cardView;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 tvNama = itemView.findViewById(R.id.tv_namakos);
                 tvStatus = itemView.findViewById(R.id.tv_status);
-                tvWaktuBayar = itemView.findViewById(R.id.tv_waktubayar);
-                tvId = itemView.findViewById(R.id.tv_id);
+                tvWaktu = itemView.findViewById(R.id.tv_waktu);
+                tvHarga = itemView.findViewById(R.id.tv_harga);
+                ivFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);
                 cardView = itemView.findViewById(R.id.cardview);
                 cardView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            mListener.openDetailRiwayat(dataList.get(getAdapterPosition()).getId());
+            mListener.openDetailRiwayat(transaksiList.get(getAdapterPosition()).getIdTransaksi());
         }
     }
 
     public interface OnItemRiwayatListener {
-        void openDetailRiwayat(String id);
+        void openDetailRiwayat(Integer id);
     }
 }

@@ -54,81 +54,82 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Detail Kos Bu Ros"
+                    android:text="Detail Transaksi"
                     android:textColor="@android:color/secondary_text_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/view1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_detailtransaksiSizeKamar"
+                    android:id="@+id/tv_DetailKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="1 kamar (3x4 m)"
                     android:textColor="@android:color/primary_text_light"
                     app:layout_constraintStart_toStartOf="@id/tv_detailtransaksi"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksiAlamat" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_NamaPenginapan" />
 
                 <TextView
-                    android:id="@+id/tv_detailtransaksiAlamat"
+                    android:id="@+id/tv_NamaPenginapan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Jl. Gebang Lor No. 38"
                     android:textColor="@android:color/primary_text_light"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/tv_detailtransaksi"
                     app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksi" />
 
                 <TextView
-                    android:id="@+id/tv_detailtransaksiFasilitas"
+                    android:id="@+id/tv_TotalHarga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Fasilitas : parkiran, kamar mandi luar,    lemari besar, meja, kipas angin"
                     android:textColor="@android:color/primary_text_light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_detailtransaksi"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksiSizeKamar" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_DetailKamar" />
 
                 <TextView
                     android:id="@+id/tv_detailtransaksiCheckin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Check in"
+                    android:text="Tanggal Masuk"
                     android:textColor="@android:color/primary_text_light"
-                    app:layout_constraintStart_toStartOf="@+id/tv_detailtransaksiFasilitas"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksiFasilitas" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tv_TotalHarga"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_TotalHarga" />
 
                 <TextView
                     android:id="@+id/tv_detailtransaksiLabelDurasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Durasi"
+                    android:text="Tanggal Keluar"
                     android:textColor="@android:color/primary_text_light"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/tv_detailtransaksiCheckin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksiCheckin" />
 
                 <TextView
-                    android:id="@+id/tv_tglCheckIn"
+                    android:id="@+id/tv_TanggalMasuk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="02-01-2020"
+                    android:textColor="@color/colorPrimaryDark2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_detailtransaksiFasilitas"
-                    tools:text="@tools:sample/date/ddmmyy" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_TotalHarga" />
 
                 <TextView
-                    android:id="@+id/tv_durasi"
+                    android:id="@+id/tv_TanggalKeluar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="5"
+                    android:textColor="@color/colorPrimaryDark2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_tglCheckIn" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_TanggalMasuk" />
 
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
@@ -206,8 +207,10 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Review &amp; Rating"
+                    android:text="Ulasan &amp; Penilaian"
                     android:textColor="@android:color/secondary_text_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/view"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -236,7 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom"
-                        android:hint="Kirimkam review atau ulasan anda disini"
+                        android:hint="Tulis ulasan anda di sini"
                         android:lines="3"
                         android:singleLine="false" />
 

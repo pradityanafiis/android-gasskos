@@ -22,7 +22,7 @@ public class NotifikasiActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView = findViewById(R.id.rv_notifikasi);
+        RecyclerView recyclerView = findViewById(R.id.rv_RiwayatTransaksi);
         List<Notifikasi> dataList = Notifikasi.dummyData(10);
         NotifikasiAdapter adapter = new NotifikasiAdapter(dataList);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));

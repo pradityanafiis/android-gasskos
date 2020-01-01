@@ -41,8 +41,6 @@ public class DetailKostActivity extends AppCompatActivity implements View.OnClic
     private SliderAdapter fotoAdapter;
     private KamarAdapter kamarAdapter;
     private List<Kamar> kamarList;
-    private CardView cardViewKamar;
-    private Kamar kamar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,7 @@ public class DetailKostActivity extends AppCompatActivity implements View.OnClic
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Bundle bundle = getIntent().getExtras();
         textViewGender = findViewById(R.id.textViewGender);
         textViewNamaPenginapan = findViewById(R.id.textViewTipeKamar);
         textViewAlamat = findViewById(R.id.textViewAlamat);
@@ -61,8 +60,6 @@ public class DetailKostActivity extends AppCompatActivity implements View.OnClic
         recyclerView = findViewById(R.id.rv_kamar);
         recyclerView.setLayoutManager(new GridLayoutManager(DetailKostActivity.this, 1));
         buttonWhatsapp.setOnClickListener(this);
-
-        Bundle bundle = getIntent().getExtras();
 
         ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
