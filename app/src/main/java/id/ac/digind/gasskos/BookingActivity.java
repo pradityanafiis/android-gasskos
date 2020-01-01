@@ -37,6 +37,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
     private Button datePick, buttonPesanKamar;
     private DatePickerDialog dialog;
     private Kamar kamar;
+    private String flagTglYmd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
         textViewTipeKamar.setText(kamar.getTipe());
         textViewHarga.setText(formatRupiah.format((double)kamar.getHarga()));
 
-        datePick.setOnClickListener(this);
+        tanggalMasuk.setOnClickListener(this);
         buttonPesanKamar.setOnClickListener(this);
     }
 
@@ -77,7 +78,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
     public void pesanKamar(){
         SharedPreferences spm = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
         Call<StandartResponse> pesanKamar = RetrofitClient.getInstance().getAPI()
-                .storeTransaksi(spm.getString("token", ""), spm.getInt("id_user", 0), kamar.getIdKamar(), tanggalMasuk.getText().toString(), Integer.parseInt(durasi.getText().toString()));
+                .storeTransaksi(spm.getString("token", ""), spm.getInt("id_user", 0), kamar.getIdKamar(), flagTglYmd, Integer.parseInt(durasi.getText().toString()));
         pesanKamar.enqueue(new Callback<StandartResponse>() {
             @Override
             public void onResponse(Call<StandartResponse> call, Response<StandartResponse> response) {
@@ -97,7 +98,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.datePick:
+            case R.id.tanggalMasuk:
                 Calendar calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH);
@@ -105,7 +106,8 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
                 dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tanggalMasuk.setText(year + "-" + month+1 + "-" + dayOfMonth);
+                        tanggalMasuk.setText(dayOfMonth + "-" + month+1 + "-" + year);
+                        flagTglYmd = year + "-" + month+1 + "-" + dayOfMonth;
                     }
                 }, year, month, day);
                 dialog.show();

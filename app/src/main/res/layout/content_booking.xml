@@ -46,10 +46,11 @@
 
     <EditText
         android:id="@+id/tanggalMasuk"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:inputType="text"
+        android:focusable="false"
+        android:inputType="none"
         android:layout_toRightOf="@id/textView4"
         android:layout_below="@id/textViewHarga"
         android:layout_marginLeft="10dp"
@@ -96,5 +97,5 @@
         android:layout_toRightOf="@id/tanggalMasuk"
         android:layout_below="@id/textViewHarga"
         android:layout_alignParentRight="true"
-        />
+        android:visibility="gone"/>
 </RelativeLayout>
