@@ -2,14 +2,19 @@ package id.ac.digind.gasskos;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import id.ac.digind.gasskos.API.RetrofitClient;
@@ -29,13 +34,17 @@ import java.util.List;
 
 import id.ac.digind.gasskos.adapters.SliderAdapter;
 
-public class DetailKostActivity extends AppCompatActivity {
+public class DetailKostActivity extends AppCompatActivity implements View.OnClickListener, KamarAdapter.OnItemRvClicked {
     private TextView textViewGender, textViewNamaPenginapan, textViewAlamat, textViewFasilitas;
+    private Button buttonWhatsapp;
+    private String numberWhatsapp;
     private SliderView sliderView;
-    private SliderAdapter fotoAdapter;
     private RecyclerView recyclerView;
+    private SliderAdapter fotoAdapter;
     private KamarAdapter kamarAdapter;
     private List<Kamar> kamarList;
+    private CardView cardViewKamar;
+    private Kamar kamar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +58,13 @@ public class DetailKostActivity extends AppCompatActivity {
         textViewNamaPenginapan = findViewById(R.id.textViewNamaPenginapan);
         textViewAlamat = findViewById(R.id.textViewAlamat);
         textViewFasilitas = findViewById(R.id.textViewFasilitas);
+        buttonWhatsapp = findViewById(R.id.buttonWhatsapp);
         sliderView = findViewById(R.id.imageSlider);
-
         recyclerView = findViewById(R.id.rv_kamar);
         recyclerView.setLayoutManager(new GridLayoutManager(DetailKostActivity.this, 1));
+        buttonWhatsapp.setOnClickListener(this);
 
         Bundle bundle = getIntent().getExtras();
-        SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
 
         ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
@@ -63,8 +72,8 @@ public class DetailKostActivity extends AppCompatActivity {
         dialog.setInverseBackgroundForced(false);
         dialog.show();
 
-        Call<DetailPenginapanResponse> getDetailPenginapan = RetrofitClient.getInstance().getAPI()
-                .getDetailPenginapan(sharedPreferences.getString("token", ""), bundle.getInt("id_penginapan"));
+        SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
+        Call<DetailPenginapanResponse> getDetailPenginapan = RetrofitClient.getInstance().getAPI().getDetailPenginapan(sharedPreferences.getString("token", ""), bundle.getInt("id_penginapan"));
         getDetailPenginapan.enqueue(new Callback<DetailPenginapanResponse>() {
             @Override
             public void onResponse(Call<DetailPenginapanResponse> call, Response<DetailPenginapanResponse> response) {
@@ -73,6 +82,7 @@ public class DetailKostActivity extends AppCompatActivity {
                 textViewNamaPenginapan.setText(response.body().getPenginapan().getNama());
                 textViewAlamat.setText(response.body().getPenginapan().getAlamat());
                 textViewFasilitas.setText(response.body().fasilitasToString(response.body().getFasilitasList()));
+                numberWhatsapp = response.body().getPenginapan().getTelepon();
 
                 kamarList = response.body().getKamarList();
                 kamarAdapter = new KamarAdapter(DetailKostActivity.this, kamarList);
@@ -107,6 +117,21 @@ public class DetailKostActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void goToBooking(Kamar kamar) {
+        Intent intent = new Intent(this, BookingActivity.class);
+        intent.putExtra(BookingActivity.extra_kamar, kamar);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String url = "https://api.whatsapp.com/send?phone="+numberWhatsapp;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }
 

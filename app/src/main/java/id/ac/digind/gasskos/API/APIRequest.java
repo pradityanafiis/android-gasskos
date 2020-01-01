@@ -34,7 +34,14 @@ public interface APIRequest {
     @FormUrlEncoded
     @POST("penginapan/i")
     Call<DetailPenginapanResponse> getDetailPenginapan(
-            @Header("Authorization") String token,
-            @Field("id_penginapan") Integer id_penginapan
+        @Header("Authorization") String token,
+        @Field("id_penginapan") Integer id_penginapan
+    );
+
+    @FormUrlEncoded
+    @POST("penginapan/g")
+    Call<PenginapanResponse> getPenginapanGender(
+        @Header("Authorization") String token,
+        @Field("gender") String gender
     );
 }

@@ -1,6 +1,7 @@
 package id.ac.digind.gasskos.adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,14 +16,16 @@ import java.util.List;
 
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.models.Kost;
+import id.ac.digind.gasskos.models.Penginapan;
 
 public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.ViewHolder> {
 
     private Context context;
     private List<Kost> dataList;
+    private List<Penginapan> penginapanList;
 
-    public FilterKostAdapter(List<Kost> dataList) {
-        this.dataList = dataList;
+    public FilterKostAdapter(List<Penginapan> penginapanList) {
+        this.penginapanList = penginapanList;
     }
 
     @Override
@@ -40,20 +43,20 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        Kost kost = dataList.get(position);
+        Penginapan penginapan = penginapanList.get(position);
 
-        viewHolder.tvNama.setText(kost.getNama());
-        viewHolder.tvHarga.setText("Rp " + kost.getHarga());
-        viewHolder.tvAlamat.setText(kost.getAlamat());
-        viewHolder.tvGender.setText(kost.getGender());
+        viewHolder.tvNama.setText(penginapan.getNama());
+        viewHolder.tvGender.setText(penginapan.getGender());
+        viewHolder.tvAlamat.setText(penginapan.getAlamat());
+
         Glide.with(viewHolder.itemView)
-                .load("https://gasskos.pradityanafiis.id/foto_penginapan/8_5e03651984c87.jpg")
+                .load("https://gasskos.pradityanafiis.id/foto_penginapan/" + penginapan.getFoto())
                 .into(viewHolder.imageViewFotoPenginapan);
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return penginapanList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +69,7 @@ public class FilterKostAdapter extends RecyclerView.Adapter<FilterKostAdapter.Vi
         public ViewHolder(View itemView) {
             super(itemView);
             tvNama = itemView.findViewById(R.id.textViewNama);
-            tvHarga = itemView.findViewById(R.id.textViewGender);
+            //tvHarga = itemView.findViewById(R.id.textViewGender);
             tvAlamat = itemView.findViewById(R.id.textViewAlamat);
             tvGender = itemView.findViewById(R.id.textViewGender);
             imageViewFotoPenginapan = itemView.findViewById(R.id.imageViewFotoPenginapan);

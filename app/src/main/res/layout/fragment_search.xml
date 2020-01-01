@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_marginBottom="50dp">
 
     <Space
         android:layout_width="match_parent"
@@ -79,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Jenis(P/L)" />
+                android:text="Gender" />
 
         </LinearLayout>
 
@@ -225,8 +226,7 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Pria"
-            android:textColor="@color/colorPrimary"/>
+            android:text="Pria" />
 
         <TextView
             android:id="@+id/tv_wanita"
@@ -250,7 +250,7 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Campuran"/>
+            android:text="Campur"/>
     </LinearLayout>
 
     <LinearLayout
@@ -302,7 +302,7 @@
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_penginapan" />
+            tools:listitem="@layout/item_penginapan"/>
 
     </android.support.v4.widget.NestedScrollView>
 

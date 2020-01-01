@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.rv_rekomendasi);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
         Call<PenginapanResponse> getPenginapan = RetrofitClient.getInstance().getAPI().getPenginapan(sharedPreferences.getString("token", ""));

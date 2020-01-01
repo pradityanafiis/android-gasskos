@@ -1,6 +1,7 @@
 package id.ac.digind.gasskos.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,9 +17,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.R;
 import id.ac.digind.gasskos.adapters.FilterKostAdapter;
 import id.ac.digind.gasskos.models.Kost;
+import id.ac.digind.gasskos.models.PenginapanResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SearchFragment extends Fragment implements View.OnClickListener {
     private Context context;
@@ -80,8 +86,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tvMaps = v.findViewById(R.id.tv_maps);
 
         recyclerView = v.findViewById(R.id.rv_kost);
-        adapter = new FilterKostAdapter(Kost.dummyDataFilter(10));
-        recyclerView.setAdapter(adapter);
     }
 
     private void addListener() {
@@ -170,6 +174,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(false);
                 tvWanita.setClickable(true);
                 tvCampuran.setClickable(true);
+                getPenginapanGender("Pria");
                 break;
             case R.id.tv_wanita:
                 setTextViewColor(R.color.colorPrimary, tvWanita);
@@ -177,6 +182,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(true);
                 tvWanita.setClickable(false);
                 tvCampuran.setClickable(true);
+                getPenginapanGender("Wanita");
                 break;
             case R.id.tv_campuran:
                 setTextViewColor(R.color.colorPrimary, tvCampuran);
@@ -184,6 +190,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 tvPria.setClickable(true);
                 tvWanita.setClickable(true);
                 tvCampuran.setClickable(false);
+                getPenginapanGender("Campur");
                 break;
         }
     }
@@ -237,5 +244,22 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         } else {
             imgStar5.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_border_24px));
         }
+    }
+
+    void getPenginapanGender(String gender) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
+        Call<PenginapanResponse> getPenginapanGender = RetrofitClient.getInstance().getAPI().getPenginapanGender(sharedPreferences.getString("token", ""), gender);
+        getPenginapanGender.enqueue(new Callback<PenginapanResponse>() {
+            @Override
+            public void onResponse(Call<PenginapanResponse> call, Response<PenginapanResponse> response) {
+                adapter = new FilterKostAdapter(response.body().getPenginapans());
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<PenginapanResponse> call, Throwable t) {
+
+            }
+        });
     }
 }
