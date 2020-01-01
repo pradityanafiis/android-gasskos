@@ -3,6 +3,7 @@ package id.ac.digind.gasskos.API;
 import id.ac.digind.gasskos.models.DetailPenginapanResponse;
 import id.ac.digind.gasskos.models.LoginResponse;
 import id.ac.digind.gasskos.models.PenginapanResponse;
+import id.ac.digind.gasskos.models.StandartResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -48,15 +49,25 @@ public interface APIRequest {
     @FormUrlEncoded
     @POST("penginapan/r")
     Call<PenginapanResponse> getPenginapanRating (
-            @Header("Authorization") String token,
-            @Field("gender") String star
+        @Header("Authorization") String token,
+        @Field("gender") String star
     );
 
     @FormUrlEncoded
     @POST("penginapan/h")
     Call<PenginapanResponse> getPenginapanHarga (
-            @Header("Authorization") String token,
-            @Field("harga_bawah") String hargaBawah,
-            @Field("harga_atas") String hargaAtas
+        @Header("Authorization") String token,
+        @Field("harga_bawah") String hargaBawah,
+        @Field("harga_atas") String hargaAtas
+    );
+
+    @FormUrlEncoded
+    @POST("transaksi/store")
+    Call<StandartResponse> storeTransaksi (
+        @Header("Authorization") String token,
+        @Field("id_users") Integer id_users,
+        @Field("id_kamar") Integer id_kamar,
+        @Field("tanggal_masuk") String tanggal_masuk,
+        @Field("durasi") Integer durasi
     );
 }
