@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import retrofit2.Response;
 public class DetailTransaksiActivity extends AppCompatActivity {
 
     private TextView tv_NamaPenginapan, tv_DetailKamar, tv_TotalHarga, tv_TanggalMasuk, tv_TanggalKeluar;
+    private EditText et_Komentar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class DetailTransaksiActivity extends AppCompatActivity {
         tv_TotalHarga = findViewById(R.id.tv_TotalHarga);
         tv_TanggalMasuk = findViewById(R.id.tv_TanggalMasuk);
         tv_TanggalKeluar = findViewById(R.id.tv_TanggalKeluar);
+        et_Komentar = findViewById(R.id.et_ulasan);
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
         Call<DetailTransaksiResponse> getDetailTransaksi = RetrofitClient.getInstance().getAPI().getDetailTransaksi(sharedPreferences.getString("token", ""), bundle.getInt("id_transaksi"));
@@ -52,6 +55,7 @@ public class DetailTransaksiActivity extends AppCompatActivity {
                 tv_TotalHarga.setText(formatRupiah.format((double)response.body().getTransaksi().getTotalHarga()));
                 tv_TanggalMasuk.setText(response.body().getTransaksi().getTanggalMasuk());
                 tv_TanggalKeluar.setText(response.body().getTransaksi().getTanggalKeluar());
+                et_Komentar.setText(response.body().getTransaksi().getKomentar());
             }
 
             @Override
