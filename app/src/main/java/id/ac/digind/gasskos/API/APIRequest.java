@@ -82,12 +82,21 @@ public interface APIRequest {
 
     @FormUrlEncoded
     @POST("transaksi/store")
-    Call<StandartResponse> storeTransaksi (
+    Call<StandartResponse> storeTransaksi(
         @Header("Authorization") String token,
         @Field("id_users") Integer id_users,
         @Field("id_kamar") Integer id_kamar,
         @Field("tanggal_masuk") String tanggal_masuk,
         @Field("durasi") Integer durasi
+    );
+
+    @FormUrlEncoded
+    @POST("transaksi/ulasan")
+    Call<StandartResponse> ulasan(
+        @Header("Authorization") String token,
+        @Field("id_transaksi") Integer id_transaksi,
+        @Field("rating") Integer rating,
+        @Field("komentar") String komentar
     );
 
 }

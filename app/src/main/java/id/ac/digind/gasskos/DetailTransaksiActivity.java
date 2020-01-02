@@ -19,6 +19,7 @@ import java.util.Locale;
 import id.ac.digind.gasskos.API.RetrofitClient;
 import id.ac.digind.gasskos.models.DetailPenginapanResponse;
 import id.ac.digind.gasskos.models.DetailTransaksiResponse;
+import id.ac.digind.gasskos.models.StandartResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,10 +29,10 @@ public class DetailTransaksiActivity extends AppCompatActivity implements View.O
 
     private TextView tv_NamaPenginapan, tv_DetailKamar, tv_TotalHarga, tv_TanggalMasuk, tv_TanggalKeluar;
     private EditText et_Komentar;
-    private TextInputEditText etReview;
     private ImageView imgRating1, imgRating2, imgRating3, imgRating4, imgRating5;
     private Button btnKirim;
     private int flagStar = 5;
+    private int idTransaksi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,8 @@ public class DetailTransaksiActivity extends AppCompatActivity implements View.O
                 tv_TanggalMasuk.setText(response.body().getTransaksi().getTanggalMasuk());
                 tv_TanggalKeluar.setText(response.body().getTransaksi().getTanggalKeluar());
                 et_Komentar.setText(response.body().getTransaksi().getKomentar());
+                setStar(response.body().getTransaksi().getRating());
+                setIdTransaksi(response.body().getTransaksi().getIdTransaksi());
             }
 
             @Override
@@ -104,12 +107,24 @@ public class DetailTransaksiActivity extends AppCompatActivity implements View.O
                 setStar(5);
                 break;
             case R.id.btn_kirim:
-                String review = etReview.getEditableText().toString();
-                if (review.isEmpty()) {
-                    etReview.setError("Harus diisi");
+                String review = et_Komentar.getText().toString();
+                if (review.equals("")) {
+                    et_Komentar.setError("Harus diisi");
                 } else {
-                    etReview.setError(null);
-                    //TODO: kirim ke API params flagStar dan review
+                    et_Komentar.setError(null);
+                    SharedPreferences sharedPreferences = this.getSharedPreferences("GassKos_Shared_Preferences", Context.MODE_PRIVATE);
+                    Call<StandartResponse> ulasan = RetrofitClient.getInstance().getAPI().ulasan(sharedPreferences.getString("token", ""), idTransaksi, flagStar, review);
+                    ulasan.enqueue(new Callback<StandartResponse>() {
+                        @Override
+                        public void onResponse(Call<StandartResponse> call, Response<StandartResponse> response) {
+                            Toast.makeText(DetailTransaksiActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<StandartResponse> call, Throwable t) {
+                            Toast.makeText(DetailTransaksiActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
                 break;
         }
@@ -147,5 +162,9 @@ public class DetailTransaksiActivity extends AppCompatActivity implements View.O
         }
 
         flagStar = count;
+    }
+
+    private void setIdTransaksi(int id) {
+        idTransaksi = id;
     }
 }
