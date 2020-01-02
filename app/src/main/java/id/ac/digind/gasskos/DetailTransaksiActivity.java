@@ -74,6 +74,13 @@ public class DetailTransaksiActivity extends AppCompatActivity implements View.O
                 Toast.makeText(DetailTransaksiActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+        imgRating1.setOnClickListener(this);
+        imgRating2.setOnClickListener(this);
+        imgRating3.setOnClickListener(this);
+        imgRating4.setOnClickListener(this);
+        imgRating5.setOnClickListener(this);
+        btnKirim.setOnClickListener(this);
     }
 
     @Override
