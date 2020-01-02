@@ -89,4 +89,6 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHold
     public interface OnItemRiwayatListener {
         void openDetailRiwayat(Integer id);
     }
+
+
 }
